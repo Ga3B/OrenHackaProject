@@ -7,9 +7,6 @@ class Visitor(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     vk_id = models.TextField()
 
-    def __str__(self):
-        return self.user.username
-
 
 # Животное
 class Animals(models.Model):
