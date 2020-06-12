@@ -5,3 +5,11 @@
 *.pyc
 *.pyc
 *.pyc
+catodog/catodog/__pycache__/__init__.cpython-38.pyc
+catodog/catodog/__pycache__/settings.cpython-38.pyc
+catodog/catodog/__pycache__/urls.cpython-38.pyc
+catodog/catodog/__pycache__/views.cpython-38.pyc
+catodog/catodog/__pycache__/wsgi.cpython-38.pyc
+catodog/MainApp/__pycache__/__init__.cpython-38.pyc
+catodog/MainApp/__pycache__/models.cpython-38.pyc
+catodog/MainApp/migrations/__pycache__/__init__.cpython-38.pyc
