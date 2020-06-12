@@ -6,7 +6,7 @@ from .forms import QueryForm
 
 
 def index(request):
-    return render(request, 'MainApp/index.html', {'Test': "Placeholder"})
+    return render(request, 'MainApp/index.html')
 
 
 def detail(request, animal_id):
