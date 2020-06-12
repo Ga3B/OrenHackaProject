@@ -21,6 +21,9 @@ class User(models.Model):
     email=models.EmailField("Email")
     password=models.CharField("Пароль",max_length=20)
     vk_id=models.CharField("вк_ид",max_length=30)
+
+    def __str__(self):
+        return self.username
     
 
 # Заявка на отлов
@@ -33,6 +36,13 @@ class Request(models.Model):
     description=models.TextField("Комментарий",null=True)
     geotag=models.TextField("Геометка")
     status=models.CharField("Статус",max_length=20)
+
+# статус животного
+class Animal_status(models.Model):
+    name_status=models.CharField("название статуса",max_length=20)
+
+    def __str__(self):
+        return self.name_status
 
 # акт приема-передачи
 class Transfer(models.Model):
@@ -47,9 +57,6 @@ class Transfer(models.Model):
     date_of_transfer=models.DateTimeField("Дата передачи животного")
     description=models.TextField(null=True,verbose_name="Описание")
 
-# статус животного
-class Animal_status(models.Model):
-    name_status=models.CharField("название статуса",max_length=20)
 
 # приют
 class Shelter(models.Model):
