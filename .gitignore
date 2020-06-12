@@ -1,8 +1,3 @@
 
 *.iml
 *.xml
-*.pyc
-*.pyc
-catodog/MainApp/__pycache__/models.cpython-38.pyc
-catodog/catodog/__pycache__/urls.cpython-38.pyc
-*.pyc
