@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect,reverse
-from MainApp/models import *
+from . import *
 
-
+# детальное описание
 class ObjectDetailMixin:
     model = None
     template = None
@@ -10,7 +10,7 @@ class ObjectDetailMixin:
         obj = get_object_or_404(self.model, id__iexact=id)
         return render(request, self.template, context={self.model.__name__.lower(): obj})
 
-
+# обновление
 class ObjectUpdateMixin:
     model = None
     template = None
@@ -29,7 +29,7 @@ class ObjectUpdateMixin:
             return redirect('')
         return render(request, self.template, context={'form': bound_form, self.model.__name__.lower(): obj})
 
-
+# создание
 class ObjectCreateMixin:
     form_model = None
     template = None
@@ -46,7 +46,7 @@ class ObjectCreateMixin:
             return redirect('')
         return render(request, self.template, context={'form': bound_form})
 
-
+# удаление
 class ObjectDeleteMixin:
     model = None
     template = None
