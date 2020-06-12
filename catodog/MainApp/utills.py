@@ -10,6 +10,7 @@ class ObjectDetailMixin:
         obj = get_object_or_404(self.model, id__iexact=id)
         return render(request, self.template, context={self.model.__name__.lower(): obj})
 
+
 # обновление
 class ObjectUpdateMixin:
     model = None

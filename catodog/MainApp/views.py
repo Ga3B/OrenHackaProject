@@ -1,3 +1,8 @@
 from django.shortcuts import render
+from django.views.generic import View
+from MainApp.utills import *
+from .forms import *
 
-# Create your views here.
+
+def Index(request):
+    render(request,"index,html")
