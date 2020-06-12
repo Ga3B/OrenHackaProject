@@ -3,12 +3,12 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 
-# class Visitor(models.Model):
-#     user = models.OneToOneField(Users, on_delete=models.CASCADE)
-#     vk_id = models.TextField()
-#
-#     def __str__(self):
-#         return self.user.username
+class Visitor(models.Model):
+    user = models.OneToOneField(Users, on_delete=models.CASCADE)
+    vk_id = models.TextField()
+
+    def __str__(self):
+        return self.user.username
 
 
 # Животное
