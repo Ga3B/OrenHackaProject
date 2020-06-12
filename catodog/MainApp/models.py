@@ -21,26 +21,13 @@ class Animal_story(models.Model):
     animals_id = models.ForeignKey(Animals, on_delete=models.CASCADE)
     operation = models.CharField("Операции", max_length=50)
 
-# Пользователь сайта
-
-
-class Users(models.Model):
-    username = models.CharField("Username", max_length=50)
-    first_name = models.CharField("Имя", max_length=20)
-    last_name = models.CharField("Фамилия", max_length=30, null=True)
-    email = models.EmailField("Email")
-    password = models.CharField("Пароль", max_length=20)
-    vk_id = models.CharField("вк_ид", max_length=30)
-
-    def __str__(self):
-        return self.username
 
 # Заявка на отлов
 
 
 class Request(models.Model):
     dateTime = models.DateTimeField("Время подачи заявки")
-    user_id = models.ForeignKey(Users, on_delete=models.DO_NOTHING,
+    user_id = models.ForeignKey(Visitor, on_delete=models.DO_NOTHING,
                                 verbose_name="Пользователь", )
     animals_id = models.ForeignKey(Animals, on_delete=models.DO_NOTHING,
                                    verbose_name="Животное")
@@ -67,7 +54,7 @@ class Transfer(models.Model):
                                   verbose_name="Статус")
     request_id = models.ForeignKey(Request, on_delete=models.SET("#0"),
                                    verbose_name="№ заявки")
-    user_id = models.ForeignKey(Users, on_delete=models.SET("Админ"),
+    user_id = models.ForeignKey(Visitor, on_delete=models.SET("Админ"),
                                 verbose_name="Ловец")
     date_of_transfer = models.DateTimeField("Дата передачи животного")
     description = models.TextField(null=True, verbose_name="Описание")
