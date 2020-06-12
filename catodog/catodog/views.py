@@ -1,6 +1,4 @@
 from django.http import HttpResponse, HttpResponseRedirect
-from .models import Poll
-from .forms import PollForm
 from django.template import loader
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
@@ -9,9 +7,7 @@ import datetime
 
 
 def index(request):
-    
-
-    return render(request, 'polls/index.html', {'latest_poll_list': latest_poll_list})
+    return render(request, 'index.html', {'Test': "Placeholder"})
 
 
 # def detail(request, poll_id, deleted=''):

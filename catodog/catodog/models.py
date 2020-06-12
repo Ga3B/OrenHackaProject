@@ -7,4 +7,4 @@ class Visitor(models.Model):
     vk_id = models.TextField()
 
     def __str__(self):
-        return self.poll_text
+        return self.user.username

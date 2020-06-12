@@ -13,12 +13,13 @@ SECRET_KEY = 'po243@krh*+a=&_l3vl33s!6%+$kw6fa65z61*lxhuh76jc_+y'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['12a48616bba5.ngrok.io']
+ALLOWED_HOSTS = ['12a48616bba5.ngrok.io', '127.0.0.1']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'catodog',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
