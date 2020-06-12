@@ -18,23 +18,29 @@ class Animals(models.Model):
     PhotoUrl = models.TextField()
 
 # история операций
+
+
 class Animal_story(models.Model):
     animals_id = models.ForeignKey(Animals, on_delete=models.CASCADE)
-    operation = models.CharField("Операции",max_length=50)
+    operation = models.CharField("Операции", max_length=50)
 
 # Пользователь сайта
+
+
 class Users(models.Model):
-    username=models.CharField("Username",max_length=50)
-    first_name=models.CharField("Имя",max_length=20)
-    last_name=models.CharField("Фамилия",max_length=30,null=True)
-    email=models.EmailField("Email")
-    password=models.CharField("Пароль",max_length=20)
-    vk_id=models.CharField("вк_ид",max_length=30)
+    username = models.CharField("Username", max_length=50)
+    first_name = models.CharField("Имя", max_length=20)
+    last_name = models.CharField("Фамилия", max_length=30, null=True)
+    email = models.EmailField("Email")
+    password = models.CharField("Пароль", max_length=20)
+    vk_id = models.CharField("вк_ид", max_length=30)
 
     def __str__(self):
         return self.username
 
 # Заявка на отлов
+
+
 class Request(models.Model):
     dateTime = models.DateTimeField("Время подачи заявки")
     user_id = models.ForeignKey(Users, on_delete=models.DO_NOTHING,
@@ -46,13 +52,17 @@ class Request(models.Model):
     status = models.CharField("Статус", max_length=20)
 
 # статус животного
+
+
 class Animal_status(models.Model):
-    name_status=models.CharField("название статуса",max_length=20)
+    name_status = models.CharField("название статуса", max_length=20)
 
     def __str__(self):
         return self.name_status
 
 # акт приема-передачи
+
+
 class Transfer(models.Model):
     animal_id = models.ForeignKey(Animals, on_delete=models.CASCADE,
                                   verbose_name="Животное")
@@ -66,14 +76,18 @@ class Transfer(models.Model):
     description = models.TextField(null=True, verbose_name="Описание")
 
 # приют
+
+
 class Shelter(models.Model):
     name = models.CharField("Наименование приюта", max_length=20)
     adres = models.CharField("Адрес приюта", max_length=150)
     phone = models.CharField("Номер телефона", max_length=12)
 
 # выпущенные животные
+
+
 class Released_animals(models.Model):
     animal_id = models.ForeignKey(Animals, on_delete=models.CASCADE)
     date_of_relise = models.DateTimeField("Дата выпуска")
     geotag_relise = models.TextField("Место выпуска")
-    number_of_chip = models.CharField("Код чипа",max_length=50)
+    number_of_chip = models.CharField("Код чипа", max_length=50)

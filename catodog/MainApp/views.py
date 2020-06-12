@@ -5,4 +5,4 @@ from .forms import *
 
 
 def index(request):
-    return render(request, 'index.html', {'Test': "Placeholder"})
+    return render(request, 'MainApp/index.html', {'Test': "Placeholder"})
