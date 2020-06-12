@@ -19,7 +19,6 @@ ALLOWED_HOSTS = ['12a48616bba5.ngrok.io', '127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
-    'catodog',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
