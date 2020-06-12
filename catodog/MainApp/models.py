@@ -20,7 +20,7 @@ class Animals(models.Model):
 # история операций
 class Animal_story(models.Model):
     animals_id = models.ForeignKey(Animals, on_delete=models.CASCADE)
-    operation = models.CharField("Операции")
+    operation = models.CharField("Операции",max_length=50)
 
 # Пользователь сайта
 class Users(models.Model):
@@ -76,4 +76,4 @@ class Released_animals(models.Model):
     animal_id = models.ForeignKey(Animals, on_delete=models.CASCADE)
     date_of_relise = models.DateTimeField("Дата выпуска")
     geotag_relise = models.TextField("Место выпуска")
-    number_of_chip = models.CharField("Код чипа")
+    number_of_chip = models.CharField("Код чипа",max_length=50)

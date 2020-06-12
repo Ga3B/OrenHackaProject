@@ -19,7 +19,7 @@ from . import views
 from .views import*
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.site.urls),
     # path('createReuest/', CreateRequest.as_view, name='CreateRequest_url')
     path('', Index, name='index')
 ]
