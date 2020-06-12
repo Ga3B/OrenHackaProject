@@ -45,9 +45,8 @@ class Request(models.Model):
     dateTime = models.DateTimeField("Время подачи заявки")
     user_id = models.ForeignKey(Users, on_delete=models.DO_NOTHING,
                                 verbose_name="Пользователь", )
-    animals_id = models.ForeignKey(Animals, on_delete=models.DO_NOTHING,
-                                   verbose_name="Животное")
     description = models.TextField("Комментарий", null=True)
+    photoURL=models.TextField();
     geotag = models.TextField("Геометка")
     status = models.CharField("Статус", max_length=20)
 
