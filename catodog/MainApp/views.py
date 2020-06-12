@@ -4,5 +4,5 @@ from MainApp.utills import *
 from .forms import *
 
 
-def Index(request):
-    render(request,"index,html")
+def index(request):
+    return render(request, 'index.html', {'Test': "Placeholder"})
