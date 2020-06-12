@@ -1,32 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Document</title>
 </head>
 <body>
-<!--	тупа шобы было-->
-	<header>
-		<nav>
-			<input type="checkbox" id="checkbox_menu">
-			<label for ="checkbox_menu">
-				<ul >
-					<li><a class="logo" href="#">кек</a></li>
-					<li><a href="#">кек</a></li>
-					<li><a href="#">кек</a></li>
-					<li><a href="#">кек</a></li>
-					<li><a href="#">кек</a></li>
-					<li><a  href="#">кек</a></li>
-					<li><a href="#">кек</a></li>
-					<li><a href="#">кек</a></li>
-				</ul>
-				<span class="toggle">☰</span>
-			</label>
-		</nav>
-	</header>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
 
-	<script src="scripts.js"></script>
+  <title>My fake blog!</title>
+
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+    integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+    crossorigin="anonymous">
+</head>
+<body>
+  <div class="jumbotron">
+    <h1>My fake blog!</h1>
+    {% if user.is_authenticated %}
+      <p>Logged as {{ user.username }}</p>
+      <a class="btn btn-primary" href="{% url 'logout' %}">Logout</a>
+    {% else %}
+      <a class="btn btn-primary" href="{% url 'social:begin' 'google-oauth2' %}">
+        Login
+      </a>
+    {% endif %}
+  </div>
+
+  <div class="container-fluid">
+  {% for post in posts %}
+    <div>
+      <h2>{{ post.title }}</h2>
+      <p>{{ post.content }}</p>
+      <p>Posted by {{ post.user.username }} | {{ post.date }}</p>
+    </div>
+  {% endfor %}
+  </div>
+</body>
+</html>
 </body>
 </html>
