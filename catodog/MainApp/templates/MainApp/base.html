@@ -1,0 +1,31 @@
+{% load static %}
+<!doctype html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
+            <title>
+                {% block title %}
+                {{ page_title|default:"Untitled Page" }}
+                {% endblock title %}
+            </title>
+    </head>
+         
+    <body>
+
+        <div class="container">
+
+            {% block content %}
+            <p>Placeholder text in base template. Replace with page content.</p>
+            {% endblock content %}
+        </div>
+        <footer class="footer">
+            <div class="container">
+            <span class="text-muted">Copyright &copy;
+            <script>
+                document.write(new Date().getFullYear());                    
+            </script>
+            </span>
+            </div>
+        </footer>
+    </body>
+</html>

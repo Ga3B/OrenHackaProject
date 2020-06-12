@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h1>Животное цвета {{ animal.color }}, примерным весом {{ animal.weight }}</h1>
+    <h2>Картинка '{{ animal.PhotoUrl }}'</h2>
+<script>
+    function deselect() {
+     var inputs = document.getElementsByTagName('input');
+    for(var i = 0; i < inputs.length; i++)
+    {
+        inputs[i].checked = false;
+    }
+        }
+    function OverlayOff() {
+        document.getElementById('overlay').style.display = 'none';
+    }
+</script>
+
+{% endblock content %}

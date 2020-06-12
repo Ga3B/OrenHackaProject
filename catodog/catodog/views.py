@@ -6,15 +6,16 @@ from django.contrib.auth.decorators import login_required
 import datetime
 
 
+
 def index(request):
     return render(request, 'index.html', {'Test': "Placeholder"})
 
 
-# def detail(request, poll_id, deleted=''):
-#     poll = get_object_or_404(Poll, pk=poll_id)
+# def add_request(request, deleted=''):
+#     animal = get_object_or_404(Animals, pk=animal_id)
 #     if deleted:
-#         poll.delete()
-#     return render(request, 'polls/detail.html', {'poll': poll, 'deleted': deleted})
+#         animal.delete()
+#     return render(request, 'polls/detail.html', {'': poll, 'deleted': deleted})
 
 # def vote(request, poll_id):
 #     poll = get_object_or_404(Poll, pk=poll_id)
@@ -39,26 +40,3 @@ def index(request):
 #     return HttpResponseRedirect(reverse('polls:detail', args=(poll.id,)))
 
 
-# def add_poll(request):
-#     submitted = False
-#     if request.method == 'POST':
-#         form = PollForm(request.POST)
-#         if form.is_valid():
-#             poll_text = form.cleaned_data['text']
-#             poll_title = form.cleaned_data['title']
-#             poll = Poll(poll_title = poll_title, poll_text = poll_text, pub_date = datetime.datetime.now())
-#             is_anon = request.POST.get('anon', False)
-#             if is_anon:
-#                 poll.save()
-#             else:
-#                 if request.user.is_authenticated:
-#                     poll.pub_by = request.user
-#                 #poll.save()
-#             poll.save()
-
-#             return HttpResponseRedirect('?submitted=True')
-#     else:
-#         form = PollForm()
-#         if 'submitted' in request.GET:
-#             submitted = True
-#     return render(request, 'polls/add_poll.html', {'form': form, 'submitted': submitted})

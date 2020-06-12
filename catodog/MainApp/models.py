@@ -32,7 +32,7 @@ class Request(models.Model):
     description = models.TextField("Комментарий", null=True)
     geotag = models.TextField("Геометка")
     status = models.CharField("Статус", max_length=20)
-    photoURL=models.TextField()
+    photoURL = models.TextField(null=True)
 
 # статус животного
 

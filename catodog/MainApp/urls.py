@@ -20,5 +20,7 @@ app_name = 'MainApp'
 urlpatterns = [
     # path('admin/', admin.site.urls),
     # path('createReuest/', CreateRequest.as_view, name='CreateRequest_url')
-    path('', views.index, name='index')
+    path('', views.index, name='index'),
+    path('<int:animal_id>/', views.detail, name='detail'),
+    path('add_request/', views.add_request, name='add_request')
 ]
