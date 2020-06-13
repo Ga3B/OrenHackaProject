@@ -12,13 +12,13 @@ from django.db import models
 #
 
 class RequsetForm(forms.Form):
-    # class Meta:
-    #     model = Request
-    #     fields = ['dateTime', 'user_id', 'description', 'geotag', 'status', 'photoURL',]
-    #     widgets = {
-        user_id: forms.HiddenInput(attrs={'class': 'form-control'})
-        description: forms.TimeField(attrs={'class': 'form-control'})
-        geotag: forms.HiddenInput(attrs={'class': 'form-control', 'id': 'geometka'})
-        status: forms.HiddenInput(attrs={'class': 'form-control'})
-        photoURL: forms.TextInput(attrs={'class': 'form-control'})
-        # }
+    class Meta:
+        model = Request
+        fields = ['dateTime', 'user_id', 'description', 'geotag', 'status', 'photoURL',]
+        widgets = {
+        'user_id': forms.HiddenInput(attrs={'class': 'form-control'}),
+        'description': forms.TimeInput(attrs={'class': 'form-control'}),
+        'geotag': forms.HiddenInput(attrs={'class': 'form-control', 'id': 'geometka'}),
+        'status': forms.HiddenInput(attrs={'class': 'form-control'}),
+        'photoURL': forms.TextInput(attrs={'class': 'form-control'}),
+        }
