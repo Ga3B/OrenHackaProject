@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title%}
+Requests-{{block.super}}
+{%endblock%}
+
+{% block content%}
+{%for req in request %}
+<div class="card-body" style="margin-left:10px">
+    <div class="card mb-3" style="max-width: 540px;">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img src="{{req.photoURL}}" class="card-img" alt="...">
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><h6>Дата подачи заявки:</h6>{{req.dateTime}}</li>
+                <li class="list-group-item"><h6>Оставлена пользователем:</h6>{{req.user_id}}</li>
+                <li class="list-group-item"><h6>Коментарий:</h6>{{req.description}}</li>
+            </ul>
+             <li class="list-group-item"><h6>Статус:</h6>{{req.status}}</li>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endfor%}
+{% endblock content %}
+

@@ -13,8 +13,7 @@ class Visitor(models.Model):
 class Animals(models.Model):
     color = models.CharField("Окрас животного", max_length=20)
     weight = models.FloatField("Вес животного")
-    PhotoUrl = models.ImageField( upload_to='static/setup_img/', height_field=None,
-                                width_field=None, max_length=100)
+    PhotoUrl = models.ImageField( blank=True, upload_to='requests/img')
     special_signs=models.CharField("Особые приметы",max_length=20)
     sort_animal=models.CharField("Вид животного", max_length=20)
     gender=models.CharField("Пол",max_length=20)
@@ -24,24 +23,28 @@ class Animals(models.Model):
         return reverse('animal_detail', kwargs={'id': self.pk})
 
 # история операций
-
-
 class Animal_story(models.Model):
     animals_id = models.ForeignKey(Animals, on_delete=models.CASCADE)
     operation = models.CharField("Операции", max_length=50)
 
+class Status(models.Model):
+    name=models.CharField('Статус',max_length=20)
+    def __str__(self):
+        return self.name
+
 
 # Заявка на отлов
-
-
 class Request(models.Model):
     dateTime = models.DateTimeField("Время подачи заявки")
     user_id = models.ForeignKey(User, on_delete=models.DO_NOTHING,
                                 verbose_name="Пользователь", )
     description = models.TextField("Комментарий", null=True)
     geotag = models.TextField("Геометка")
-    status = models.CharField("Статус", max_length=20)
+    status = models.ForeignKey(Status,on_delete=models.SET("Неизвестно"),verbose_name="Статус", max_length=20)
     photoURL = models.ImageField(blank=True, upload_to='requests/img')
+
+    def get_absolute_url(self):
+        return reverse('request_detail', kwargs={'id': self.pk})
 
 # статус животного
 

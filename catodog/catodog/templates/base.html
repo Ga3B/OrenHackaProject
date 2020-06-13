@@ -22,13 +22,13 @@
                 <a class="logo" href="/"><img class="logoimg" href="/" src="{% static 'img/logo.png' %}"></a>
 <!-- "../../static/img/logo.png -->
                 <li><a href="{% url 'MainApp:about' %}">о нас</a></li>
-                <li><a href="{% url 'MainApp:news' %}">новости</a></li>
+                <li><a href="{% url 'MainApp:news' %}">события</a></li>
                 <li><a href="{% url 'MainApp:add_request' %}">подать заявку</a></li>
                 <li><a href="{% url 'MainApp:check_list' %}">животные в приюте</a></li>
-                <li><a href="{% url 'MainApp:pets' %}">питомцы</a></li>
-                <li><a class="contacts" href="{% url 'help' %}">помощь</a></li>
-                <li><a href="{% url 'contacts' %}">контакты</a></li>
-                <li><a href="{% url 'donate' %}">пожертвовать</a></li>
+                <li><a href="{% url 'MainApp:request_all' %}">список заявок</a></li>
+                <li><a class="contacts" href="{% url 'help' %}">FAQ</a></li>
+                <li><a href="{% url 'contacts' %}">Наши партнеры</a></li>
+                <li><a href="{% url 'donate' %}">Поддержать</a></li>
                 {% if request.user.is_authenticated %}
                 <li><a href="/accounts/logout/">выйти</a></li>
                 <li><a href="{% url 'profile' %}">профиль</a></li>
