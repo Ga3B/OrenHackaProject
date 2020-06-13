@@ -15,6 +15,6 @@ class RequestForm(forms.Form):
     # required_css_class = 'required'
     user_id = forms.HiddenInput()
     description = forms.CharField(label='Описание', max_length=140)
-    geotag = forms.HiddenInput()
+    geotag = forms.CharField(max_length=100)
     status = forms.HiddenInput()
     photoURL = forms.CharField(label='Фото')
