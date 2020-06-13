@@ -4,18 +4,18 @@
 {%load static%}
 {% block content %}
 <h1>Добавьте вашу заявку</h1>
-
-  <style>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<style>
         #map {
-            width: 500px; height: 500px; padding: 80px; margin: 0;
+            width: 100%; height: 100%;
         }
-        </style>
- <script src="https://api-maps.yandex.ru/2.1/?lang=en_RU&amp;apikey=dd16a5a7-d6e1-49b1-bd76-ccddd02df8ee" type="text/javascript"></script>
- <script  type="text/javascript" src="{% static 'js/yamapclick.js' %}"></script>
-    <form action="" method="post" novalidate>
-        <table>
-            <td>{{ form.as_table }}</td>
-        </table>
+
+</style>
+<script src="https://api-maps.yandex.ru/2.1/?lang=en_RU&amp;apikey=dd16a5a7-d6e1-49b1-bd76-ccddd02df8ee"
+        type="text/javascript"></script>
+<script type="text/javascript" src="{% static 'js/yamapclick.js' %}"></script>
+<form action="" method="post" novalidate>
 
     {% if request.user.is_authenticated %}
     <div class="form-group form-check" style="display: inline;">
@@ -23,10 +23,30 @@
         <label class="form-check-label" for="anonCheck" style=";">Post anonymously</label>
     </div>
     {% endif %}
-    <button class="btn btn-primary" type="submit">Submit</button>
 
     {% csrf_token %}
-    </form>
-<div id="map"></div>
+</form>
 
-{% endblock content %}
+<div class="card border-primary mb-3" style="width: 600px;heightL600px;">
+  <div class="card-header">Пожалуйста, заполните форму</div>
+  <div class="card-body text-primary">
+   {{ form.as_table }}
+  </div>
+</div>
+
+
+<div class="card border-primary mb-3" style="width: 600px;height:600px;">
+  <div class="card-header">Укажите местоположение животного</div>
+  <div class="card-body text-primary">
+
+    <div id="map"></div></ul>
+  </div>
+    <div class="card-footer text-muted">
+   <button type="submit" class="btn btn-primary" style="  width: 100%; height: 100%;" >Primary</button>
+  </div>
+</div>
+
+
+
+
+    {% endblock content %}
