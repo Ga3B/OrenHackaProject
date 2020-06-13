@@ -2,40 +2,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>
-	{% block title %}
-		Roga and Copita
-	{% endblock %}
-	</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+        Roga and Copita
+        {% endblock %}
+    </title>
 
-<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
 </head>
 <body>
-	<div class="backgroundview"></div>
-	<header>
-		<nav>
-			<input type="checkbox" id="checkbox_menu">
-			<label for ="checkbox_menu">
-				<ul class="menu touch">
-					<li><a class="logo" href="#">главная</a></li>
-					<li><a href="#">о нас</a></li>
-					<li><a href="#">новости</a></li>
-					<li><a href="#">видео</a></li>
-					<li><a href="#">питомцы</a></li>
-					<li><a class="contacts" href="#">помощь</a></li>
-					<li><a href="#">котнакты</a></li>
-					<li><a href="#">пожертвовать</a></li>
-					<li><a href="/accounts/login/">войти</a></li>
-				</ul>
-				<span class="toggle">☰</span>
-			</label>
-		</nav>
-	</header>
-        {%block content%}
-		    Thete is no any content
-		{%endblock%}
+
+<header>
+    <nav>
+        <div class="header">
+            <ul class="menu touch">
+                <li><a class="logo" href="#">главная</a></li>
+                <li><a href="#">о нас</a></li>
+                <li><a href="#">новости</a></li>
+                <li><a href="add_request/">подать заявку</a></li>
+                <li><a href="#">питомцы</a></li>
+                <li><a class="contacts" href="#">помощь</a></li>
+                <li><a href="#">котнакты</a></li>
+                <li><a href="#">пожертвовать</a></li>
+                <li><a href="/accounts/login/">войти</a></li>
+            </ul>
+            <span class="toggle">☰</span>
+        </div>
+    </nav>
+</header>
+{%block content%}
+Thete is no any content
+{%endblock%}
+<div class="backgroundview"></div>
 <!--	<script src="scripts.js"></script>-->
 </body>
 </html>
