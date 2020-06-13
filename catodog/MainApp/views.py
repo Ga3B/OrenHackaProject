@@ -80,7 +80,9 @@ def add_animals(request):
 
 def check_list(request):
     animals = Animals.objects.order_by('weight')[:5]
-    return render(request, 'MainApp/check_list.html', {'animals': animals})
+    transfer = Transfer.objects.order_by('date_of_transfer')[:5]
+    return render(request, 'MainApp/check_list.html', {'animals': animals, 'transfer' : transfer})
+
 
 
 def about(request):
