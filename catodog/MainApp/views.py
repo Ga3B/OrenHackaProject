@@ -42,3 +42,15 @@ def add_request(request):
 def check_list(request):
     animals = Animals.objects.order_by('weight')[:5]
     return render(request, 'MainApp/check_list.html', {'animals': animals})
+
+
+def about(request):
+    return render(request, 'MainApp/about.html', {})
+
+
+def pets(request):
+    return render(request, 'MainApp/pets.html', {})
+
+
+def news(request):
+    return render(request, 'MainApp/news.html', {})

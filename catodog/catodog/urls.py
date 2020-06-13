@@ -22,6 +22,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('MainApp.urls')),
     path('accounts/', include('allauth.urls')),
+    path('help/', views.help, name='help'),
+    path('contacts/', views.contacts, name='contacts'),
+    path('donate/', views.donate, name='donate'),
     # path('auth', include('social_django.urls', namespace='social')),
     # path('', include('social_django.urls', namespace='social')),
 ]
