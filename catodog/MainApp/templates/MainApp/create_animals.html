@@ -3,5 +3,23 @@
 {% block title %}Добавление животного{% endblock title %}
 {%load static%}
 {% block content %}
-<td>{{form.as_table}}</td>
+
+
+
+<form action="" enctype="multipart/form-data" method="post" novalidate>
+    <div class="card border-primary mb-3" style="width: 600px;heightL600px;">
+        <div class="card-header">Пожалуйста, заполните форму</div>
+         <div class="card-body text-primary">
+            {{ form.as_table }}
+        </div>
+    {% csrf_token %}
+
+    <div class="card-footer text-muted">
+        <button type="submit" class="btn btn-primary" style="  width: 100%; height: 100%;">Добавить</button>
+    </div>
+    </div>
+
+</form>
+
+
 {%endblock content%}
