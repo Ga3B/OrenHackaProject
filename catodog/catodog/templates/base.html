@@ -26,7 +26,8 @@
                 <li><a href="{% url 'MainApp:add_request' %}">подать заявку</a></li>
                 <li><a href="{% url 'MainApp:check_list' %}">животные в приюте</a></li>
                 <li><a href="{% url 'MainApp:request_all' %}">список заявок</a></li>
-                <li><a class="contacts" href="{% url 'help' %}">FAQ</a></li>
+                <li><a href="{% url 'MainApp:add_animals' %}">Зарегистрировать животное</a></li>
+                <li><a href="{% url 'help' %}">FAQ</a></li>
                 <li><a href="{% url 'contacts' %}">Наши партнеры</a></li>
                 <li><a href="{% url 'donate' %}">Поддержать</a></li>
                 {% if request.user.is_authenticated %}
