@@ -21,7 +21,8 @@ scale mode: Tile;
 }
 
 .header{
-background:#fff;
+background:#DC5E17;
+opacity: 0.7;
 color:#000;
 }
 
