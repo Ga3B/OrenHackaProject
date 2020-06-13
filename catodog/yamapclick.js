@@ -13,6 +13,7 @@ function init() {
     // Слушаем клик на карте.
     myMap.events.add('click', function (e) {
         var coords = e.get('coords');
+        document.getElementById('kek').innerHTML = coords;
 
         // Если метка уже создана – просто передвигаем ее.
         if (myPlacemark) {

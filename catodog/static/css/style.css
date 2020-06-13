@@ -75,7 +75,8 @@ font-weight: bold;
 	transition: background .2s linear;
 }
 .menu_touch li a:hover{
-		background: #DC5E17;
+		background: rgba(220, 94, 23, 0.6);
+		opacity: 70%;
 		border-radius: 3px;
 }
 .menu_touch li a.logo{
@@ -121,3 +122,8 @@ font-weight: bold;
 
 	}
 }
+
+img{
+	width: 20%;
+}
+
