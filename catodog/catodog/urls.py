@@ -25,6 +25,7 @@ urlpatterns = [
     path('help/', views.help, name='help'),
     path('contacts/', views.contacts, name='contacts'),
     path('donate/', views.donate, name='donate'),
+    path('profile/', views.profile, name='profile')
     # path('auth', include('social_django.urls', namespace='social')),
     # path('', include('social_django.urls', namespace='social')),
 ]

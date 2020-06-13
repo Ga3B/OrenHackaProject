@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+{% if action == 'edit' %}
+    <h1>Измените данные профиля</h1>
+    <form method="post" action="">
+        <input type="text" name="firstname" placeholder={{ user.first_name }}>
+        <input type="text" name="lastname" placeholder={{ user.last_name }}>
+        <input type="submit" value="Готово">
+        {% csrf_token %}
+    </form>
+{% else %}
+    Имя: {{ user.first_name }}
+    <br>Фамилия: {{ user.last_name }}<br>
+
+    <form><br>
+        <button formaction="{% url 'profile' action='edit' %}">
+        Изменить</button>
+    </form>
+
+    {% if action == 'success' %}
+    {% endif %}
+    <br>
+
+    Достижения:<br>
+    <div class="row">
+
+{% endif %}
+</div>
+{% endblock content %}
