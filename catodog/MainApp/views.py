@@ -37,6 +37,3 @@ def add_request(request):
         if 'submitted' in request.GET:
             submitted = True
     return render(request, 'MainApp/add_request.html', {'form': form, 'submitted': submitted})
-
-
-
