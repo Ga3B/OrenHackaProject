@@ -8,6 +8,20 @@ body,html{
     background:#000000
 	overflow-x:hidden;
 
+
+
+
+}
+.backgroundview
+{
+position: absolute;
+width: 100%;
+height: 100%;
+background: url(../img/rogaikopita.png),rgba(60, 111, 62, 0.31);
+opacity: 25%;
+background-blend-mode: luminosity, normal;
+scale mode: Tile;
+
 }
 nav{
 	margin: auto;
