@@ -3,7 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.views import View
 from MainApp.utills import *
 from .models import Request, Animals, Visitor, Transfer, Status
-from .forms import RequestForm, AnimalForm
+from .forms import RequestForm, AnimalForm, CatcherForm
 import datetime
 
 
@@ -117,3 +117,29 @@ def act(request, op_id):
     transfer = get_object_or_404(Transfer, pk=transfer_id)
     animal = get_object_or_404(Animals, pk=animal_id)
     return render(request, 'act.html', {'transfer': transfer, 'animal': animal})
+
+
+def catcher(request):
+    submitted = False
+    if request.method == 'POST':
+        form = CatcherForm(request.POST, request.FILES)
+        if form.is_valid():
+            doc = request.FILES['doc']
+            name = form.cleaned_data['name']
+            address = form.cleaned_data['address']
+            inn = form.cleaned_data['inn']
+
+        #     return HttpResponse('Заявка принята!')
+        # else:
+        #     response = {}
+        #     for k in form.errors:
+        #         response[k] = form.errors[k][0]
+        #     return HttpResponse({"Что-то не так:\n": response})
+
+        #     return HttpResponseRedirect('?submitted=True')
+    else:
+
+        form = CatcherForm()
+        if 'submitted' in request.GET:
+            submitted = True
+    return render(request, 'MainApp/catcher.html', {'form': form, 'submitted': submitted})

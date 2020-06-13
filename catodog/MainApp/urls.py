@@ -36,5 +36,6 @@ urlpatterns = [
     path('createpets/', views.add_animals, name='add_animals'),
     path('pets/<int:id>', AnimalDetail.as_view(), name='animal_detail'),
     path('request/', views.requests_all, name='request_all'),
+    path('catcher/', views.catcher, name='catcher')
 
 ]
