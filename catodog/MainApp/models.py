@@ -27,12 +27,12 @@ class Animal_story(models.Model):
 
 class Request(models.Model):
     dateTime = models.DateTimeField("Время подачи заявки")
-    user_id = models.ForeignKey(Visitor, on_delete=models.DO_NOTHING,
+    user_id = models.ForeignKey(User, on_delete=models.DO_NOTHING,
                                 verbose_name="Пользователь", )
     description = models.TextField("Комментарий", null=True)
     geotag = models.TextField("Геометка")
     status = models.CharField("Статус", max_length=20)
-    photoURL = models.TextField(null=True)
+    photoURL = models.ImageField(blank=True, upload_to='requests/img')
 
 # статус животного
 
@@ -53,7 +53,7 @@ class Transfer(models.Model):
                                   verbose_name="Статус")
     request_id = models.ForeignKey(Request, on_delete=models.SET("#0"),
                                    verbose_name="№ заявки")
-    user_id = models.ForeignKey(Visitor, on_delete=models.SET("Админ"),
+    user_id = models.ForeignKey(User, on_delete=models.SET("Админ"),
                                 verbose_name="Ловец")
     date_of_transfer = models.DateTimeField("Дата передачи животного")
     description = models.TextField(null=True, verbose_name="Описание")
