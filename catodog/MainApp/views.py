@@ -37,3 +37,8 @@ def add_request(request):
         if 'submitted' in request.GET:
             submitted = True
     return render(request, 'MainApp/add_request.html', {'form': form, 'submitted': submitted})
+
+
+def check_list(request):
+    animals = Animals.objects.order_by('weight')[:5]
+    return render(request, 'MainApp/check_list.html', {'animals': animals})

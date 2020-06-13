@@ -1,22 +1,13 @@
-{% extends "base_templates.html" %}
+{% extends "base.html" %}
 
 {% block title %}Список заявок{% endblock title %}
 
 {% block content %}
 <h1>Список заявок</h1>
-    <form action="" method="post" novalidate>
-        <table>
-            <td>{{ form.as_table }}</td>
-        </table>
+    {% for animal in animals %}
+        <p>Окрас {{ animal.color }}, Вес {{ animal.weight }}, фото {{ animal.PhotoUrl }}</p>
 
-    {% if request.user.is_authenticated %}
-    <div class="form-group form-check" style="display: inline;">
-        <input type="checkbox" class="form-check-input" id="anonCheck" name="anon">
-        <label class="form-check-label" for="anonCheck" style=";">Post anonymously</label>
-    </div>
-    {% endif %}
-    <button class="btn btn-primary" type="submit">Submit</button>
-    {% csrf_token %}
-    </form>
+
+    {% endfor %}
 
 {% endblock content %}

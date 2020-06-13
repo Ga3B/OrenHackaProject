@@ -24,6 +24,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('<int:animal_id>/', views.detail, name='detail'),
     path('add_request/', views.add_request, name='add_request'),
+    path('check_list/', views.check_list, name='check_list')
 
 
 ]
