@@ -13,7 +13,7 @@ function init() {
     // Слушаем клик на карте.
     myMap.events.add('click', function (e) {
         var coords = e.get('coords');
-        document.getElementById('id_geotag').value = coords;
+        document.getElementById('id_geotag').value =coords;
         alert(coords);
         // Если метка уже создана – просто передвигаем ее.
         if (myPlacemark) {
@@ -43,7 +43,7 @@ function init() {
     }
 
     // Определяем адрес по координатам (обратное геокодирование).
- /*   function getAddress(coords) {
+    function getAddress(coords) {
         myPlacemark.properties.set('iconCaption', 'поиск...');
         ymaps.geocode(coords).then(function (res) {
             var firstGeoObject = res.geoObjects.get(0);
@@ -59,7 +59,8 @@ function init() {
                     ].filter(Boolean).join(', '),
                     // В качестве контента балуна задаем строку с адресом объекта.
                     balloonContent: firstGeoObject.getAddressLine()
+
                 });
         });
-    }*/
+    }
 }

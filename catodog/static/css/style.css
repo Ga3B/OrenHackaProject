@@ -1,9 +1,35 @@
 *{
 	padding: 0;
 	margin: 0;
-	font-family: 'Roboto Condensed',sans-serif;
+	font-family: 'Nunito',sans-serif;
 }
+p {text-indent: 30px;}
+.logo
+{
+	margin-top:15px;
+	width: 100px;
+	height: 100px;
+	
+}
+.logoimg
+{
+	width: 100%;
+	
 
+}
+.content {
+  top: 15%;
+  left: 48%;
+  margin-left: -400px;
+  position: absolute;
+  width: 900px;
+  background:#FFFFFF;
+  opacity: 1; 
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.25);
+	border-radius: 30px;
+    box-sizing: border-box;
+  padding:50px;
+	}
 body,html{
     background:#000000
 	overflow-x:hidden;
@@ -21,8 +47,12 @@ scale mode: Tile;
 }
 
 .header{
-background :#FFFFFF;
-opacity: 0.7;
+ background: linear-gradient(91.28deg, rgba(255, 255, 255, 1) -4.53%, rgba(255, 255, 255, 1) 44.28%), linear-gradient(237.37deg, rgba(132, 185, 71, 0.7) 55.69%, rgba(255, 255, 255, 0) 100.83%), rgba(165, 171, 160, 0.8);
+  opacity: 1; 
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.25);
+	border-radius: 30px;
+    box-sizing: border-box;
+opacity: 1;
 background-blend-mode: luminosity,normal;
 
 }
@@ -55,7 +85,7 @@ nav{
 .menu_touch{
 	padding: 0;
 	margin: 0;
-	height: 50px;
+	height: 70px;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
