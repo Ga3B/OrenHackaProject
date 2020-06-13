@@ -1,13 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from MainApp.utills import *
-<< << << < HEAD
 from .models import Animals, Request
 from .forms import RequestForm
-== == == =
-from .models import Animals
-from .forms import QueryForm
->>>>>> > ba52ea0c0b848fba338cb019967e20ff63574277
 
 
 def index(request):
