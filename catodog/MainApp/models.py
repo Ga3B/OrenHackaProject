@@ -58,8 +58,8 @@ class Animal_status(models.Model):
 
 # акт приема-передачи
 class Transfer(models.Model):
-    animal_id = models.ForeignKey(Animals, on_delete=models.CASCADE,
-                                  verbose_name="Животное", )
+    animal_id = models.ForeignKey(Animals, on_delete=models.CASCADE,verbose_name="Животное",related_name="animal_id"),
+
     status_id = models.ForeignKey(Animal_status, on_delete=models.SET("Неизвестно"),
                                   verbose_name="Статус")
     request_id = models.ForeignKey(Request, on_delete=models.SET("#0"),
