@@ -19,7 +19,7 @@ p {text-indent: 30px;}
 }
 .content {
   top: 15%;
-  left: 45%;
+  left: 48%;
   margin-left: -400px;
   position: absolute;
   width: 900px;
@@ -85,7 +85,7 @@ nav{
 .menu_touch{
 	padding: 0;
 	margin: 0;
-	height: 50px;
+	height: 70px;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
