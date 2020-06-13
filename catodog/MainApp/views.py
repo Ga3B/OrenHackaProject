@@ -37,8 +37,7 @@ def add_request(request):
             user_id = request.user
             description = form.cleaned_data['description']
             geotag = form.cleaned_data['geotag']
-            status = Status(name='Sent')
-            status.save()
+            status = get_object_or_404(Status, pk=1)
             photoUrl = request.FILES['photoURL']
             req = Request(dateTime=dateTime, user_id=user_id, description=description,
                           geotag=geotag, status=status, photoURL=photoUrl)
