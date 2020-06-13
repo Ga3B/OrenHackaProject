@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+{% load static %}
 {% if action == 'edit' %}
     <h1>Измените данные профиля</h1>
     <form method="post" action="">
@@ -16,7 +17,12 @@
     {% endif %}
     <br>
 
-    Достижения:<br>
+    Мои достижения:<br><br>
+    <img src="{% static 'achiv/1.png' %}">
+    <img src="{% static 'achiv/2.png' %}">
+    <img src="{% static 'achiv/3.png' %}">
+    <img src="{% static 'achiv/4.png' %}">
+
     <div class="row">
 
 {% endif %}
