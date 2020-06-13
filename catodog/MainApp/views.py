@@ -98,3 +98,4 @@ def news(request):
 def act(request, op_id):
     transfer = get_object_or_404(Transfer, pk=transfer_id)
     animal = get_object_or_404(Animals, pk=animal_id)
+    return render(request, 'act.html', {'transfer': transfer, 'animal': animal})
