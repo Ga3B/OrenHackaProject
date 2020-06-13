@@ -28,6 +28,7 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('news/', views.news, name='news'),
     path('pets/', views.pets, name='pets'),
-    path('act/', views.act, name='act')
+    path('act/', views.act, name='act'),
+    path('createpets/', views.add_animals, name='add_animals')
 
 ]

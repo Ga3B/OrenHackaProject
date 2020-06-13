@@ -18,3 +18,16 @@ class RequestForm(forms.Form):
     geotag = forms.CharField(max_length=100)
     status = forms.HiddenInput()
     photoURL = forms.FileField(label='Фото')
+
+
+class AnimalForm(forms.Form):
+    color = forms.CharField(label='Окрас', max_length=100)
+    weight = forms.CharField(label='Вес')
+    photoUrl = forms.FileField(label='Фото')
+    special_signs = forms.CharField(label="Особые приметы",max_length=100)
+    view_animal = forms.CharField(label='Вид животного', max_length=140)
+    gender = forms.CharField(label="Пол животного", max_length=100)
+    behavior = forms.CharField(label="Поведение",max_length=50)
+
+
+

@@ -12,7 +12,12 @@ class Visitor(models.Model):
 class Animals(models.Model):
     color = models.CharField("Окрас животного", max_length=20)
     weight = models.FloatField("Вес животного")
-    PhotoUrl = models.TextField()
+    PhotoUrl = models.ImageField( upload_to='static/setup_img/', height_field=None,
+                                width_field=None, max_length=100)
+    special_signs=models.CharField("Особые приметы",max_length=20)
+    sort_animal=models.CharField("Вид животного", max_length=20)
+    gender=models.CharField("Пол",max_length=20)
+    behavior=models.CharField("Поведение животного",max_length=40,null=True)
 
 # история операций
 
