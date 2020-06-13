@@ -24,7 +24,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'MainApp.apps.MainappConfig',
-    # 'social_django',
+    'social_django',
 
     'django.contrib.sites',
     'allauth',
@@ -65,6 +65,9 @@ TEMPLATES = [
     },
 ]
 AUTHENTICATION_BACKENDS = [
+
+    'social_core.backends.vk.VKOAuth2',
+    'social_core.backends.google.GoogleOAuth2',
     # Needed to login by username in Django admin, regardless of `allauth`
     'django.contrib.auth.backends.ModelBackend',
 
@@ -135,6 +138,7 @@ STATICFILES_DIRS = [
 AUTHENTICATION_BACKENDS = (
 
     'social_core.backends.vk.VKOAuth2',
+    'social_core.backends.google.GoogleOAuth2',
     # Needed to login by username in Django admin, regardless of `allauth`
     'django.contrib.auth.backends.ModelBackend',
 
