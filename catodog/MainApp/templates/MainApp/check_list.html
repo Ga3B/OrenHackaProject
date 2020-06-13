@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-
 {% block title %}Список заявок{% endblock title %}
 
 {% block content %}
@@ -9,5 +8,5 @@
 
 
     {% endfor %}
-
+{% include 'MainApp/blocks.html' with Name='Main' %}
 {% endblock content %}
