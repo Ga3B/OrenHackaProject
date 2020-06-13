@@ -12,7 +12,7 @@ SECRET_KEY = 'po243@krh*+a=&_l3vl33s!6%+$kw6fa65z61*lxhuh76jc_+y'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['12a48616bba5.ngrok.io', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost', '12a48616bba5.ngrok.io', '127.0.0.1']
 
 # Application definition
 
@@ -25,7 +25,17 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'MainApp.apps.MainappConfig',
     # 'social_django',
+
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.odnoklassniki',
+    'allauth.socialaccount.providers.vk',
+    'allauth.socialaccount.providers.google',
 ]
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -50,11 +60,16 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                # 'social_django.context_processors.backends',
-                # 'social_django.context_processors.login_redirect',
             ],
         },
     },
+]
+AUTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
 WSGI_APPLICATION = 'catodog.wsgi.application'
@@ -116,11 +131,21 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
 ]
-#
-# AUTHENTICATION_BACKENDS = (
-#     'social_core.backends.google.GoogleOAuth2',
-#     'django.contrib.auth.backends.ModelBackend',
-# )
+
+AUTHENTICATION_BACKENDS = (
+
+    'social_core.backends.vk.VKOAuth2',
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+# бекенд классической аутентификации, чтобы работала авторизация через обычный логин и пароль
+# SOCIAL_AUTH_VK_OAUTH2_KEY = '7509543'
+# SOCIAL_AUTH_VK_OAUTH2_SECRET = 'tYKqJ9cis3YtLw6e78Tn'
+
 # #
 # SOCIAL_AUTH_URL_NAMESPACE = 'social'
 #
@@ -128,19 +153,26 @@ STATICFILES_DIRS = [
 # SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '154875863887-0ao2d15vf6bjbcbkt9eiq7bmf56jpupv.apps.googleusercontent.com'
 # SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'crxndyNsJuVFNCLrqyElHOZ5'
 #
-# SOCIAL_AUTH_PIPELINE = (
-#     'social_core.pipeline.social_auth.social_details',
-#     'social_core.pipeline.social_auth.social_uid',
-#     'social_core.pipeline.social_auth.social_user',
-#     'social_core.pipeline.user.get_username',
-#     'social_core.pipeline.social_auth.associate_by_email',
-#     'social_core.pipeline.user.create_user',
-#     'social_core.pipeline.social_auth.associate_user',
-#     'social_core.pipeline.social_auth.load_extra_data',
-#     'social_core.pipeline.user.user_details',
-# )
-#
-# LOGIN_URL = '/auth/login/google-oauth2/'
-#
-# LOGIN_REDIRECT_URL = '/'
-# LOGOUT_REDIRECT_URL = '/'
+# Provider specific settings
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        # For each OAuth based provider, either add a ``SocialApp``
+        # (``socialaccount`` app) containing the required client
+        # credentials, or list them here:
+        'APP': {
+            'client_id': '285076709372-tt9nkgtdjmk39e87pdd5qunfiqg37u01.apps.googleusercontent.com',
+            'secret': 'kG1I3jj4F8uKqjvbXXrLPT6_',
+            'key': ''
+        },
+        'vk': {
+            'APP': {
+                'client_id': '7509543',
+                'secret': 'g9F3gLnHJMFEVv9mbLB9',
+                'key': ''
+            }
+
+        }
+    }
+}
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
