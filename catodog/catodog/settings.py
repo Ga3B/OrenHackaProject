@@ -24,7 +24,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'MainApp.apps.MainappConfig',
-    'social_django',
 
     'django.contrib.sites',
     'allauth',
@@ -52,7 +51,7 @@ ROOT_URLCONF = 'catodog.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'catodog/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
