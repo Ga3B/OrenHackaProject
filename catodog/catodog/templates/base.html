@@ -28,9 +28,9 @@
                 <li><a href="{% url 'contacts' %}">котнакты</a></li>
                 <li><a href="{% url 'donate' %}">пожертвовать</a></li>
                 {% if request.user.is_authenticated %}
-                <li><a href="/accounts/login/">войти</a></li>
-                {% else %}
                 <li><a href="/accounts/logout/">выйти</a></li>
+                {% else %}
+                <li><a href="/accounts/login/">войти</a></li>
                 {% endif %}
             </ul>
             <span class="toggle">☰</span>
