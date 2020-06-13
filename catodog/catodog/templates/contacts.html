@@ -1,23 +1,16 @@
 {% extends "base.html" %}
+<div class="content">
 {% block content %}
-
+{% load static %}
 <style type="text/css">
 	p {text-indent: 30px;
 		margin-left: 200px;}
-	.content {
-  top: 15%;
-  left: 50%;
-  margin-left: -400px;
-  position: absolute;
-  width: 700px;
-  background-color: white;
-  padding:50px;
-	}
+
 </style>
-<div class="content">
+
 
 <div>
-<img src="partner/1.png">
+<img src="{% static 'partner/1.png' %}">
 <p><b>Отрада</b></p>
 <p>Приют для животных</p>
 <p>Телефон: <b>+7 (922) 818 44 22</b></p>
@@ -25,7 +18,7 @@
 </div>
 
 <div>
-<img src="partner/2.png">
+<img src="{% static 'partner/2.png' %}">
 <p><b>#Я-Живой!</b></p>
 <p>Приют для животных</p>
 <p>Телефон: <b>+7 (961) 929 13 64</b></p>
@@ -34,7 +27,7 @@
 </div>
 
 <div>
-<img src="partner/3.png">
+<img src="{% static 'partner/3.png' %}">
 <p><b>ОренВет</b></p>
 <p>Ветеринарные услуги</p>
 <p>Телефон: <b>+7 (3532) 93 99 24</b></p>
@@ -43,7 +36,7 @@
 </div>
 
 <div>
-<img src="partner/4.png">
+<img src="{% static 'partner/4.png' %}">
 <p><b>Кот и Пес</b></p>
 <p>Ветеринарные услуги</p>
 <p>Телефон: <b>+7 (3532) 56 04 04</b></p>
@@ -53,13 +46,14 @@
 </div>
 
 <div>
-<img src="partner/5.png">
+<img src="{% static 'partner/5.png' %}">
 <p><b>Рыжий кот</b></p>
 <p>Магазин зооветтоваров</p>
 <p>Телефон: <b>+7 (3532) 76 89 19</b></p>
 <p>Адрес: <b>ул. Степана Разина, д.130</b></p>
 <p>Электронная почта:<b>mveterinar@mail.ru</b></p>
-</div>
+
+
+{% endblock content %}
 
 </div>
-{% endblock content %}

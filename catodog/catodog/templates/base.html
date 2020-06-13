@@ -27,7 +27,7 @@
                 <li><a href="{% url 'MainApp:check_list' %}">список заявок</a></li>
                 <li><a href="{% url 'MainApp:pets' %}">питомцы</a></li>
                 <li><a class="contacts" href="{% url 'help' %}">помощь</a></li>
-                <li><a href="{% url 'contacts' %}">котнакты</a></li>
+                <li><a href="{% url 'contacts' %}">контакты</a></li>
                 <li><a href="{% url 'donate' %}">пожертвовать</a></li>
                 {% if request.user.is_authenticated %}
                 <li><a href="/accounts/logout/">выйти</a></li>
