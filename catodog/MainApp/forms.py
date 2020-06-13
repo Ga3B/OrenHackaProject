@@ -10,7 +10,7 @@ class QueryForm(forms.Form):
     weight = forms.CharField(label='Вес')
     photoUrl = forms.URLField(label='Ссылка на фото')
 
-    
+
 class RequestForm(forms.Form):
     # required_css_class = 'required'
     user_id = forms.HiddenInput()
