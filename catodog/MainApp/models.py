@@ -13,7 +13,7 @@ class Visitor(models.Model):
 class Animals(models.Model):
     color = models.CharField("Окрас животного", max_length=20)
     weight = models.FloatField("Вес животного")
-    PhotoUrl = models.ImageField( blank=True, upload_to='static/setup_img')
+    PhotoUrl = models.ImageField( blank=True, upload_to='static/requests/imgAnimal')
     special_signs=models.CharField("Особые приметы",max_length=20)
     sort_animal=models.CharField("Вид животного", max_length=20)
     gender=models.CharField("Пол",max_length=20)
@@ -41,7 +41,7 @@ class Request(models.Model):
     description = models.TextField("Комментарий", null=True)
     geotag = models.TextField("Геометка")
     status = models.ForeignKey(Status,on_delete=models.SET("Неизвестно"),verbose_name="Статус", max_length=20)
-    photoURL = models.ImageField(blank=True, upload_to='requests/img')
+    photoURL = models.ImageField(blank=True, upload_to='static/requests/imgReq')
 
     def get_absolute_url(self):
         return reverse('request_detail', kwargs={'id': self.pk})
