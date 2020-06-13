@@ -14,11 +14,12 @@
 </head>
 <body>
 <div class="backgroundview"></div>
+
 <header>
     <nav>
         <div class="header">
             <ul class="menu_touch">
-                <li><a class="logo" href="/"><img src="{% static 'img/logo.png' %}"></a></li>
+                <a class="logo" href="/"><img class="logoimg" href="/" src="{% static 'img/logo.png' %}"></a>
 <!-- "../../static/img/logo.png -->
                 <li><a href="{% url 'MainApp:about' %}">о нас</a></li>
                 <li><a href="{% url 'MainApp:news' %}">новости</a></li>
@@ -39,10 +40,12 @@
         </div>
     </nav>
 </header>
+<div class="content">
 {% block content %}
 Thete is no any content
 {% endblock %}
 
 <!--    <script src="scripts.js"></script>-->
+</div>>
 </body>
 </html>
