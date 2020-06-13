@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 # Create your models here.
+from django.urls import reverse
 
 
 class Visitor(models.Model):
@@ -18,6 +19,9 @@ class Animals(models.Model):
     sort_animal=models.CharField("Вид животного", max_length=20)
     gender=models.CharField("Пол",max_length=20)
     behavior=models.CharField("Поведение животного",max_length=40,null=True)
+
+    def get_absolute_url(self):
+        return reverse('animal_detail', kwargs={'id': self.pk})
 
 # история операций
 

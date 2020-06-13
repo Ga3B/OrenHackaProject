@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from . import views
+from .views import AnimalDetail
 
 app_name = 'MainApp'
 urlpatterns = [
@@ -28,6 +29,8 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('news/', views.news, name='news'),
     path('pets/', views.pets, name='pets'),
-    path('createpets/', views.add_animals, name='add_animals')
+    path('act/', views.act, name='act'),
+    path('createpets/', views.add_animals, name='add_animals'),
+    path('pets/<int:id>', AnimalDetail.as_view(), name='animal_detail')
 
 ]
