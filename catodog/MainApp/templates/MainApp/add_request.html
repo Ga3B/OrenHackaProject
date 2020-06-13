@@ -10,6 +10,10 @@
         #map {
             width: 100%; height: 100%;
         }
+        #id_geotag {
+          visibility: hidden;
+        }
+        
 
 </style>
 <script src="https://api-maps.yandex.ru/2.1/?lang=en_RU&amp;apikey=dd16a5a7-d6e1-49b1-bd76-ccddd02df8ee"
@@ -24,10 +28,7 @@
 
 </div>
     {% if request.user.is_authenticated %}
-    <div class="form-group form-check" style="display: inline;">
-        <input type="checkbox" class="form-check-input" id="anonCheck" name="anon">
-        <label class="form-check-label" for="anonCheck" style=";">Post anonymously</label>
-    </div>
+
     {% endif %}
     {% csrf_token %}
 
