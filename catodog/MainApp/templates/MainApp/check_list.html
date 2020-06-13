@@ -1,0 +1,22 @@
+{% extends "base_templates.html" %}
+
+{% block title %}Список заявок{% endblock title %}
+
+{% block content %}
+<h1>Список заявок</h1>
+    <form action="" method="post" novalidate>
+        <table>
+            <td>{{ form.as_table }}</td>
+        </table>
+
+    {% if request.user.is_authenticated %}
+    <div class="form-group form-check" style="display: inline;">
+        <input type="checkbox" class="form-check-input" id="anonCheck" name="anon">
+        <label class="form-check-label" for="anonCheck" style=";">Post anonymously</label>
+    </div>
+    {% endif %}
+    <button class="btn btn-primary" type="submit">Submit</button>
+    {% csrf_token %}
+    </form>
+
+{% endblock content %}
