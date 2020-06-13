@@ -85,7 +85,7 @@ nav{
 .menu_touch{
 	padding: 0;
 	margin: 0;
-	height: 50px;
+	height: 70px;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
