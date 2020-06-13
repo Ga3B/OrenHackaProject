@@ -38,6 +38,7 @@ def add_request(request):
             description = form.cleaned_data['description']
             geotag = form.cleaned_data['geotag']
             status = Status(name='Sent')
+            status.save()
             photoUrl = request.FILES['photoURL']
             req = Request(dateTime=dateTime, user_id=user_id, description=description,
                           geotag=geotag, status=status, photoURL=photoUrl)
@@ -48,7 +49,6 @@ def add_request(request):
             #     if request.user.is_authenticated:
             #         animal.save()
             req.save()
-            status.save()
             return HttpResponse('Заявка принята!')
         else:
             response = {}
