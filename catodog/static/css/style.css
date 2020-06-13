@@ -21,11 +21,16 @@ scale mode: Tile;
 }
 
 .header{
-background:#DC5E17;
+background :url(../img/menu.jpg), #DC5E17;
 opacity: 0.7;
-color:#000;
+background-blend-mode: luminosity,normal;
+scale mode: Crop;
+opacity: : 30%;
 }
+.menu_touch
+{
 
+}
 button
 {
 	margin-left:5%;
@@ -41,14 +46,14 @@ Corner Radius: 17px;
 }
 nav{
 	margin: auto;
-	max-width: 1100px;
+	max-width: 80%;
 	width: 100%;
 }
 #checkbox_menu,
 .toggle{
 	display: none;
 }
-.menu{
+.menu_touch{
 	padding: 0;
 	margin: 0;
 	height: 50px;
@@ -58,23 +63,26 @@ nav{
 	align-items: center;
 	list-style-type: none;
 }
-.menu li a{
-	color:#000;
+.menu_touch li a{
+	color: rgba(255, 255, 255, 0.71);
+	font-family: Nunito;
+font-style: normal;
+font-weight: bold; 
 	text-decoration: none;
 	align-self: center;
-	font-size: 13px;
+	font-size: 20px;
 	padding: 15px 15px;
 	transition: background .2s linear;
 }
-.menu li a:hover{
-		background: #ffcc01;
+.menu_touch li a:hover{
+		background: #DC5E17;
 		border-radius: 3px;
 }
-.menu li a.logo{
+.menu_touch li a.logo{
 	font-size: 25px;
 	margin-right:240px;
 }
-.menu li a.contacts{
+.menu_touch li a.contacts{
 	margin-right: 30px;
 }
 
@@ -99,11 +107,11 @@ nav{
 		visibility: visible;
 		transition: all .7s linear;
 	}
-	#checkbox_menu + label .touch{
+	#checkbox_menu + label .menu_touch{
 		height: 350px;
 
 	}
-	.menu{
+	.menu_touch{
 		display:flex;
 		flex-direction: column;
 		justify-content: space-around;
