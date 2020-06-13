@@ -38,8 +38,8 @@ def add_request(request):
             description = form.cleaned_data['description']
             geotag = form.cleaned_data['geotag']
             status = Status(name='Sent')
-            photoUrl=request.FILES['photoURL']
-            req=Request(dateTime=dateTime, user_id=user_id, description=description,
+            photoUrl = request.FILES['photoURL']
+            req = Request(dateTime=dateTime, user_id=user_id, description=description,
                           geotag=geotag, status=status, photoURL=photoUrl)
             # is_anon = request.POST.get('anon', False)
             # if is_anon:
@@ -48,48 +48,49 @@ def add_request(request):
             #     if request.user.is_authenticated:
             #         animal.save()
             req.save()
+            status.save()
             return HttpResponse('Заявка принята!')
         else:
-            response={}
+            response = {}
             for k in form.errors:
-                response[k]=form.errors[k][0]
+                response[k] = form.errors[k][0]
             return HttpResponse({"Что-то не так:\n": response})
 
             return HttpResponseRedirect('?submitted=True')
     else:
 
-        form=RequestForm()
+        form = RequestForm()
         if 'submitted' in request.GET:
-            submitted=True
+            submitted = True
     return render(request, 'MainApp/add_request.html', {'form': form, 'submitted': submitted})
 
 
 def add_animals(request):
-    submitted=False
+    submitted = False
     if request.method == 'POST':
-        form=AnimalForm(request.POST, request.FILES)
+        form = AnimalForm(request.POST, request.FILES)
         if form.is_valid():
-            photoUrl=request.FILES['photoURL']
-            color=form.cleaned_data['color']
-            weight=form.cleaned_data['weight']
-            special_signs=form.cleaned_data['special_signs']
-            sort_animal=form.cleaned_data['sort_animal']
-            gender=form.cleaned_data['gender']
-            behavior=form.cleaned_data['behavior']
-            animals=Animals(color=color, weight=weight, special_signs=special_signs,
+            photoUrl = request.FILES['photoURL']
+            color = form.cleaned_data['color']
+            weight = form.cleaned_data['weight']
+            special_signs = form.cleaned_data['special_signs']
+            sort_animal = form.cleaned_data['sort_animal']
+            gender = form.cleaned_data['gender']
+            behavior = form.cleaned_data['behavior']
+            animals = Animals(color=color, weight=weight, special_signs=special_signs,
                               sort_animal=sort_animal, gender=gender, behavior=behavior, photoUrl=photoUrl)
             animals.save()
             return HttpResponseRedirect('?submitted=True')
     else:
-        form=AnimalForm()
+        form = AnimalForm()
         if 'submitted' in request.GET:
-            submitted=True
+            submitted = True
     return render(request, 'MainApp/create_animals.html', {'form': form, 'submitted': submitted})
 
 
 def check_list(request):
-    animals=Animals.objects.order_by('weight')[:5]
-    transfer=Transfer.objects.order_by('date_of_transfer')[:5]
+    animals = Animals.objects.order_by('weight')[:5]
+    transfer = Transfer.objects.order_by('date_of_transfer')[:5]
     return render(request, 'MainApp/check_list.html', {'animals': animals, 'transfer': transfer})
 
 
@@ -106,6 +107,6 @@ def news(request):
 
 
 def act(request, op_id):
-    transfer=get_object_or_404(Transfer, pk=transfer_id)
-    animal=get_object_or_404(Animals, pk=animal_id)
+    transfer = get_object_or_404(Transfer, pk=transfer_id)
+    animal = get_object_or_404(Animals, pk=animal_id)
     return render(request, 'act.html', {'transfer': transfer, 'animal': animal})
