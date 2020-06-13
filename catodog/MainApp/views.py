@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from MainApp.utills import *
-from .models import Request, Animals, Visitor
+from .models import Request, Animals, Visitor, Transfer
 from .forms import RequestForm
 import datetime
 
@@ -68,3 +68,8 @@ def pets(request):
 
 def news(request):
     return render(request, 'MainApp/news.html', {})
+
+
+def act(request, op_id):
+    transfer = get_object_or_404(Transfer, pk=op_id)
+    return render(request, 'act.html', {'transfer': transfer})
