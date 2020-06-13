@@ -21,11 +21,12 @@ scale mode: Tile;
 }
 
 .header{
-background :/*url(../img/menu.jpg),*/ #DC5E17;
-opacity: 0.7;
+/*background :url(../img/menu.jpg), #DC5E17;*/
+background-color: #FFFFFF;
+opacity: 100%;
 background-blend-mode: luminosity,normal;
 scale mode: Crop;
-opacity: : 30%;
+
 }
 .menu_touch
 {
@@ -64,7 +65,8 @@ nav{
 	list-style-type: none;
 }
 .menu_touch li a{
-	color: rgba(255, 255, 255, 0.71);
+	opacity: 100%;
+	color: rgba(0, 0, 0, 0.71);
 	font-family: Nunito;
 font-style: normal;
 font-weight: bold; 
@@ -120,4 +122,10 @@ font-weight: bold;
 		transition: height .3s linear;
 
 	}
+}
+img
+{
+	
+	width: 50%;
+	height: 50%;
 }
