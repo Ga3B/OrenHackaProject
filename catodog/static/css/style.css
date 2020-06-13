@@ -21,12 +21,11 @@ scale mode: Tile;
 }
 
 .header{
-/*background :url(../img/menu.jpg), #DC5E17;*/
-background-color: #FFFFFF;
-opacity: 100%;
+background :url(../img/menu.jpg), #DC5E17;
+opacity: 0.7;
 background-blend-mode: luminosity,normal;
 scale mode: Crop;
-
+opacity: : 30%;
 }
 .menu_touch
 {
@@ -65,8 +64,7 @@ nav{
 	list-style-type: none;
 }
 .menu_touch li a{
-	opacity: 100%;
-	color: rgba(0, 0, 0, 0.71);
+	color: rgba(255, 255, 255, 0.71);
 	font-family: Nunito;
 font-style: normal;
 font-weight: bold; 
@@ -77,7 +75,8 @@ font-weight: bold;
 	transition: background .2s linear;
 }
 .menu_touch li a:hover{
-		background: #DC5E17;
+		background: rgba(220, 94, 23, 0.6);
+		opacity: 70%;
 		border-radius: 3px;
 }
 .menu_touch li a.logo{
@@ -123,9 +122,6 @@ font-weight: bold;
 
 	}
 }
-img
-{
-	
-	width: 50%;
-	height: 50%;
+img{
+	width: 20%;
 }
