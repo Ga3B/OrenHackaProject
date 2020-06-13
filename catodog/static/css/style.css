@@ -24,8 +24,7 @@ scale mode: Tile;
 background :#FFFFFF;
 opacity: 0.7;
 background-blend-mode: luminosity,normal;
-scale mode: Crop;
-opacity: : 30%;
+
 }
 .menu_touch
 {
@@ -117,7 +116,7 @@ font-weight: bold;
 		flex-direction: column;
 		justify-content: space-around;
 		align-items:center ;
-		height:0 ;
+		height:0 ;s
 		transition: height .3s linear;
 
 	}
@@ -126,4 +125,3 @@ font-weight: bold;
 img{
 	width: 20%;
 }
-
