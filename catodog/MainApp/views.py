@@ -4,7 +4,7 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from MainApp.utills import *
 from .models import Animals,Request
-from .forms import RequsetForm
+from .forms import RequestForm
 
 
 def index(request):
@@ -43,10 +43,8 @@ def detail(request, animal_id):
 def add_request(request):
     submitted = False
     if request.method == 'POST':
-        form = RequsetForm(request.POST)
+        form = RequestForm(request.POST)
         if form.is_valid():
-            # color = form.cleaned_data['color']
-            # weight = form.cleaned_data['weight']
             photoUrl = form.cleaned_data['photoUrl']
             dateTime=datetime.datetime.now()
             user_id=request.user
@@ -66,7 +64,7 @@ def add_request(request):
 
             return HttpResponseRedirect('?submitted=True')
     else:
-        form = RequsetForm()
+        form = RequestForm()
         if 'submitted' in request.GET:
             submitted = True
     return render(request, 'MainApp/add_request.html', {'form': form, 'submitted': submitted})
