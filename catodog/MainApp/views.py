@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from MainApp.utills import *
-from .models import Request,Animals
+from .models import Request, Animals
 from .forms import RequestForm
 import datetime
 
@@ -27,7 +27,7 @@ def add_request(request):
             description = form.cleaned_data['description']
             geotag = form.cleaned_data['geotag']
             status = form.cleaned_data['status']
-            photoUrl=form.cleaned_data['photoURL']
+            photoUrl = form.cleaned_data['photoURL']
             req = Request(dateTime=dateTime, user_id=user_id, description=description,
                           geotag=geotag, status=status, photoURL=photoUrl)
             # is_anon = request.POST.get('anon', False)
