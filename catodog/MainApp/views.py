@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from MainApp.utills import *
 from .models import Request, Animals, Visitor
-from .forms import RequestForm
+from .forms import RequestForm,AnimalForm
 import datetime
 
 
@@ -51,6 +51,28 @@ def add_request(request):
         if 'submitted' in request.GET:
             submitted = True
     return render(request, 'MainApp/add_request.html', {'form': form, 'submitted': submitted})
+
+def add_animals(request):
+    submitted = False
+    if request.method == 'POST':
+        form = AnimalForm(request.POST, request.FILES)
+        if form.is_valid():
+            photoUrl=request.FILES['photoURL']
+            color = form.cleaned_data['color']
+            weight = form.cleaned_data['weight']
+            special_signs = form.cleaned_data['special_signs']
+            sort_animal = form.cleaned_data['sort_animal']
+            gender = form.cleaned_data['gender']
+            behavior=form.cleaned_data['behavior']
+            animals= Animals(color=color, weight=weight, special_signs=special_signs,
+                          sort_animal=sort_animal, gender=gender, behavior=behavior,photoUrl=photoUrl)
+            animals.save()
+            return HttpResponseRedirect('?submitted=True')
+    else:
+        form = AnimalForm()
+        if 'submitted' in request.GET:
+            submitted = True
+    return render(request, 'MainApp/create_animals.html', {'form': form, 'submitted': submitted})
 
 
 def check_list(request):
