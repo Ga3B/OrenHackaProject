@@ -1,9 +1,17 @@
 {% extends "base.html" %}
 
 {% block title %}Новая заявка{% endblock title %}
-
+{%load static%}
 {% block content %}
 <h1>Добавьте вашу заявку</h1>
+
+  <style>
+        #map {
+            width: 500px; height: 500px; padding: 80px; margin: 0;
+        }
+        </style>
+ <script src="https://api-maps.yandex.ru/2.1/?lang=en_RU&amp;apikey=dd16a5a7-d6e1-49b1-bd76-ccddd02df8ee" type="text/javascript"></script>
+ <script  type="text/javascript" src="{% static 'js/yamapclick.js' %}"></script>
     <form action="" method="post" novalidate>
         <table>
             <td>{{ form.as_table }}</td>
@@ -16,7 +24,9 @@
     </div>
     {% endif %}
     <button class="btn btn-primary" type="submit">Submit</button>
+
     {% csrf_token %}
     </form>
+<div id="map"></div>
 
 {% endblock content %}
