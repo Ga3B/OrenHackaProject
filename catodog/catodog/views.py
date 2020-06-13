@@ -3,6 +3,7 @@ from django.template import loader
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
+from django.core.exceptions import ValidationError
 import datetime
 
 
@@ -20,3 +21,20 @@ def contacts(request):
 
 def donate(request):
     return render(request, 'donate.html', {})
+
+
+@login_required()
+def profile(request, action=''):
+    user = request.user
+    if request.method == 'POST':
+        if action == 'edit':
+            user.first_name = request.POST.get('firstname')
+            user.last_name = request.POST.get('lastname')
+            try:
+                user.full_clean()
+            except ValidationError as e:
+                return render(request, 'profile.html', {'user': user, 'error_message': e})
+            else:
+                user.save()
+                return HttpResponseRedirect(reverse('profile', args=('success',)))
+    return render(request, 'profile.html', {'user': user, 'action': action})
