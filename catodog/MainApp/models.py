@@ -46,18 +46,17 @@ class Request(models.Model):
     def get_absolute_url(self):
         return reverse('request_detail', kwargs={'id': self.pk})
 
+
 # статус животного
-
-
 class Animal_status(models.Model):
     name_status = models.CharField("название статуса", max_length=20)
 
     def __str__(self):
         return self.name_status
 
+
+
 # акт приема-передачи
-
-
 class Transfer(models.Model):
     animal_id = models.ForeignKey(Animals, on_delete=models.CASCADE,
                                   verbose_name="Животное")

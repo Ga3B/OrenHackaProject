@@ -69,7 +69,7 @@ def add_animals(request):
     if request.method == 'POST':
         form = AnimalForm(request.POST, request.FILES)
         if form.is_valid():
-            photoUrl = request.FILES['photoURL']
+            photoUrl = request.FILES['photoUrl']
             color = form.cleaned_data['color']
             weight = form.cleaned_data['weight']
             special_signs = form.cleaned_data['special_signs']
@@ -77,10 +77,18 @@ def add_animals(request):
             gender = form.cleaned_data['gender']
             behavior = form.cleaned_data['behavior']
             animals = Animals(color=color, weight=weight, special_signs=special_signs,
-                              sort_animal=sort_animal, gender=gender, behavior=behavior, photoUrl=photoUrl)
+                              sort_animal=sort_animal, gender=gender, behavior=behavior, PhotoUrl=photoUrl)
             animals.save()
+            return HttpResponse('Заявка принята!')
+        else:
+            response = {}
+            for k in form.errors:
+                response[k] = form.errors[k][0]
+            return HttpResponse({"Что-то не так:\n": response})
+
             return HttpResponseRedirect('?submitted=True')
     else:
+
         form = AnimalForm()
         if 'submitted' in request.GET:
             submitted = True
