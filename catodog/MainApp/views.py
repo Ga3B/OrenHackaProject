@@ -22,6 +22,10 @@ class AnimalDetail(ObjectDetailMixin,View):
     model = Animals
     template ='MainApp/detail_animals.html'
 
+def requests_all(request):
+    req = Request.objects.all()
+    return render(request, 'MainApp/detail_request.html', {'request': req})
+
 
 def add_request(request):
     submitted = False

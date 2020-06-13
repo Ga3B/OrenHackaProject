@@ -14,7 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.templatetags.static import static
 from django.urls import path, include
+
+from catodog import settings
 from . import views
 from .views import AnimalDetail
 
@@ -31,6 +34,7 @@ urlpatterns = [
     path('pets/', views.pets, name='pets'),
     path('act/', views.act, name='act'),
     path('createpets/', views.add_animals, name='add_animals'),
-    path('pets/<int:id>', AnimalDetail.as_view(), name='animal_detail')
+    path('pets/<int:id>', AnimalDetail.as_view(), name='animal_detail'),
+    path('request/', views.requests_all, name='request_all'),
 
 ]
