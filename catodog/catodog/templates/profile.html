@@ -12,11 +12,6 @@
     Имя: {{ user.first_name }}
     <br>Фамилия: {{ user.last_name }}<br>
 
-    <form><br>
-        <button formaction="{% url 'profile' action='edit' %}">
-        Изменить</button>
-    </form>
-
     {% if action == 'success' %}
     {% endif %}
     <br>
