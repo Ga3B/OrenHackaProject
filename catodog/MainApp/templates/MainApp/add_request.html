@@ -1,18 +1,8 @@
 {% extends "base.html" %}
 
 {% block title %}Новая заявка{% endblock title %}
-{% load static%}
+
 {% block content %}
-
-  <style>
-        #map {
-
-            width: 500px; height: 500px; padding: 80px; margin: 0;
-        }
-    </style>
-
-   <script src="https://api-maps.yandex.ru/2.1/?lang=en_RU&amp;apikey=dd16a5a7-d6e1-49b1-bd76-ccddd02df8ee" type="text/javascript"></script>
- <script  type="text/javascript" src="{% static 'js/yamapclick.js' %}"></script>
 <h1>Добавьте вашу заявку</h1>
     <form action="" method="post" novalidate>
         <table>
@@ -20,7 +10,6 @@
         </table>
 
     {% if request.user.is_authenticated %}
-
     <div class="form-group form-check" style="display: inline;">
         <input type="checkbox" class="form-check-input" id="anonCheck" name="anon">
         <label class="form-check-label" for="anonCheck" style=";">Post anonymously</label>
@@ -29,8 +18,5 @@
     <button class="btn btn-primary" type="submit">Submit</button>
     {% csrf_token %}
     </form>
-<div id="map"></div>
-
-
 
 {% endblock content %}

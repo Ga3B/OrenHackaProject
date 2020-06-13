@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from .models import Request
+# from .models import Poll
 from django.db import models
 
 
@@ -12,7 +12,9 @@ from django.db import models
 #
 
 class RequestForm(forms.Form):
-    description = forms.CharField(max_length=10000)
-    geotag = forms.CharField(max_length=100)
-    status = forms.CharField(max_length=20)
-    photoURL = forms.URLField(max_length=500)
+    # required_css_class = 'required'
+    user_id = forms.HiddenInput()
+    description = forms.CharField(label='Описание', max_length=140)
+    geotag = forms.HiddenInput()
+    status = forms.HiddenInput()
+    photoURL = forms.CharField(label='Фото')
