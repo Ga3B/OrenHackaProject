@@ -12,8 +12,10 @@ function init() {
 
     // Слушаем клик на карте.
     myMap.events.add('click', function (e) {
-        var coords = e.get('coords');
 
+        var coords = e.get('coords');
+        alert(coords);
+        document.getElementById('id_geotag').value = coords;
         // Если метка уже создана – просто передвигаем ее.
         if (myPlacemark) {
             myPlacemark.geometry.setCoordinates(coords);
@@ -27,7 +29,7 @@ function init() {
                 getAddress(myPlacemark.geometry.getCoordinates());
             });
         }
-        getAddress(coords);
+//        getAddress(coords);
     });
 
     // Создание метки.
@@ -42,7 +44,7 @@ function init() {
     }
 
     // Определяем адрес по координатам (обратное геокодирование).
-    function getAddress(coords) {
+ /*   function getAddress(coords) {
         myPlacemark.properties.set('iconCaption', 'поиск...');
         ymaps.geocode(coords).then(function (res) {
             var firstGeoObject = res.geoObjects.get(0);
