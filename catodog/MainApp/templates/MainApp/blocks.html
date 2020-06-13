@@ -2,7 +2,7 @@
 <div class="list_item">
 
 	<link rel="stylesheet" type="text/css" href="{% static 'css/blockstyle.css' %}"/>
-	<span ><img class="animal_photo" src=""></span>
+	<span ><img src="{% static '' %}../{{ animal.PhotoUrl}}" style="width:50%;height:80%;max-width:200px;max-height:200px;float:left; "></span>
 	<span class="status">Вид:{{animal.sort_animal}}</span><br>
 	<span class="status">Окрас:{{animal.color}}</span><br>
 	<span class="status">Пол:{{animal.gender}}</span><br>
