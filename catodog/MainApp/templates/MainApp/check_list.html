@@ -1,12 +1,14 @@
 {% extends "base.html" %}
-{% block title %}Список заявок{% endblock title %}
+{% block title %}Животные в приюте{% endblock title %}
 
 {% block content %}
-<h1>Список заявок</h1>
+<h1>Животные в приюте:</h1>
+
     {% for animal in animals %}
-        <p>Окрас {{ animal.color }}, Вес {{ animal.weight }}, фото {{ animal.PhotoUrl }}</p>
+    {% include 'MainApp/blocks.html' %}
+<!-- , Color={{ animal.color }} , Photo={{ animal.PhotoUrl }} -->        
 
     
     {% endfor %}
-{% include 'MainApp/blocks.html' with Name="sdgsdg" %}
+
 {% endblock content %}

@@ -3,14 +3,15 @@
 
 	<link rel="stylesheet" type="text/css" href="{% static 'css/blockstyle.css' %}"/>
 	<span ><img class="animal_photo" src=""></span>
-	<span class="status">{{Name}}</span>
+	<span class="status">Вид:{{animal.sort_animal}}</span><br>
+	<span class="status">Окрас:{{animal.color}}</span><br>
+	<span class="status">Пол:{{animal.gender}}</span><br>
+	<span class="status">Вес:{{animal.weight}}</span><br>
+	<span class="status">В приюте с:{{transfer.date_of_transfer}}</span><br>
+	<span class="status">Статус:{{transfer.status_id}}</span><br>
 	<a class="map_click"">
-		Показать на карте
-		<button class="map_click"" >map</button>
+		<button class="map_click"" >MORE</button>
 	</a>
 </div>>
 <!-- фото
-датавремя
-гео(кнопка показать на карте)
-статус
  -->

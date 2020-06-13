@@ -4,54 +4,88 @@
 {% load static %}
 <style type="text/css">
 	p {text-indent: 30px;
-		margin-left: 200px;}
-
+		}
+	table {
+		padding: 0px;
+	}
+	td {
+		padding: 0px;
+	}
+	img {
+		height: 80px;
+		width: auto;
+	}
 </style>
 
-
-<div>
-<img src="{% static 'partner/1.png' %}">
+<br><h1><p align="center">Наши партнеры</p></h1> <br><br>
+<table >
+<tr>
+<td width="50%" align="center">
+<img  src="{% static 'partner/1.png' %}">
+</td>
+<td align="left">
 <p><b>Отрада</b></p>
 <p>Приют для животных</p>
 <p>Телефон: <b>+7 (922) 818 44 22</b></p>
 <p>Электронная почта:<b>orenotrada@mail.ru</b></p>
-</div>
+</td>
+</tr>
+<tr height="30px"></tr>
 
-<div>
+<tr>
+<td width="50%" align="center">
 <img src="{% static 'partner/2.png' %}">
+</td>
+<td align="left">
 <p><b>#Я-Живой!</b></p>
 <p>Приют для животных</p>
 <p>Телефон: <b>+7 (961) 929 13 64</b></p>
 <p>Телефон: <b>+7 (905) 842 82 08</b></p>
 <p>Телефон: <b>+7 (905) 881 18 26</b></p>
-</div>
-
-<div>
+</td>
+</tr>
+<tr height="30px"></tr>
+<tr>
+<td width="50%" align="center">
 <img src="{% static 'partner/3.png' %}">
+</td>
+<td align="left">
 <p><b>ОренВет</b></p>
 <p>Ветеринарные услуги</p>
 <p>Телефон: <b>+7 (3532) 93 99 24</b></p>
 <p>Адрес: <b>пр. Победы 164/1</b></p>
 <p>Адрес: <b>ул. Салмышская 35</b></p>
-</div>
-
-<div>
+</td>
+</tr>
+<tr height="30px"></tr>
+<tr>
+<td width="50%" align="center">
 <img src="{% static 'partner/4.png' %}">
+</td>
+<td align="left">
 <p><b>Кот и Пес</b></p>
 <p>Ветеринарные услуги</p>
 <p>Телефон: <b>+7 (3532) 56 04 04</b></p>
 <p>Адрес: <b>ул.Комсомольская, 194</b></p>
 <p>Телефон: <b>+7 (3532) 44 66 52</b></p>
 <p>Адрес: <b>ул.Казачья (Ростоши), 89</b></p>
-</div>
-
-<div>
+</td>
+</tr>
+<tr height="30px"></tr>
+<tr>
+<td width="50%" align="center">
 <img src="{% static 'partner/5.png' %}">
+</td>
+<td align="left">
 <p><b>Рыжий кот</b></p>
 <p>Магазин зооветтоваров</p>
 <p>Телефон: <b>+7 (3532) 76 89 19</b></p>
 <p>Адрес: <b>ул. Степана Разина, д.130</b></p>
 <p>Электронная почта:<b>mveterinar@mail.ru</b></p>
+</td>
+</tr>
+</table>
+
 
 
 {% endblock content %}

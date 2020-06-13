@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title%}
+abouts-{{block.super}}
+{%endblock%}
+
+{% block content%}
+<!--<div class="card mb-3" style="max-width: 540px;">-->
+<!--  <div class="row no-gutters">-->
+<!--    <div class="col-md-4">-->
+<!--      <img src={{animals.PhotoUrl}} class="card-img" alt="...">-->
+<!--    </div>-->
+
+<div class="card-body" style="margin-left:10px">
+    <div class="card mb-3" style="max-width: 540px;">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img src="{{animals.PhotoUrl}}" class="card-img" alt="...">
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><h6>Окрас животного:</h6>{{animals.color}}</li>
+                <li class="list-group-item"><h6>Вес животного:</h6>{{animals.weight}}</li>
+                <li class="list-group-item"><h6>Особые приметы:</h6>{{animals.PhotoUrl}}</li>
+                <li class="list-group-item"><h6>Вид животного:</h6>{{animals.sort_animal}}</li>
+                <li class="list-group-item"><h6>Пол:</h6>{{animals.gender}}</li>
+                <li class="list-group-item"><h6>Поведение животного:</h6>{{animals.behavior}}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+        {%endblock content %}
+ templates/home.html

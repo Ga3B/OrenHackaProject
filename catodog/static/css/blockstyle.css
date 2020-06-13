@@ -1,25 +1,27 @@
 .list_item
-{background: linear-gradient(91.28deg, rgba(55, 133, 150, 0.7) -4.53%, rgba(136, 189, 73, 0.7) 44.28%), linear-gradient(237.37deg, rgba(132, 185, 71, 0.7) 55.69%, rgba(255, 255, 255, 0) 100.83%), rgba(165, 171, 160, 0.8);
+{
+
+background: linear-gradient(91.28deg, rgba(255, 255, 255, 0.7) -4.53%, rgba(254, 254, 254, 0.7) 44.28%), linear-gradient(237.37deg, rgba(132, 185, 71, 0.7) 55.69%, rgba(255, 255, 255, 0) 100.83%), rgba(165, 171, 160, 0.8);
 opacity: 0.8;
-margin-left: 10%;
+margin-left: 5%;
 margin-right:10%;
-width: 80%;
-height: 250px;
-	display: block;
-	font-family: "PT Sans","Helvetica","Arial",sans-serif;
-    font-size: 16px;
-    line-height: 1.42857;
-    color: #333;
-    
-    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.25);
-	border-radius: 30px;
-    box-sizing: border-box;
+width: 90%;
+height: 200px;
+font-family: "PT Sans","Helvetica","Arial",sans-serif;
+font-size: 16px;
+line-height: 1.42857;
+color: #333;    
+box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.25);
+border-radius: 30px;
+box-sizing: border-box;
 }
 .map_click
 {
-	margin-left:80%;
+	margin-left:45%;
 	width: 10%;
-	
+	height: 25%;
+	margin-bottom: 0%;
+	margin-top:-5%; 
 }
 .animal_photo
 {

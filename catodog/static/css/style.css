@@ -105,8 +105,8 @@ font-weight: bold;
 }
 .menu_touch li a:hover{
 		background: rgba(220, 94, 23, 0.6);
-		opacity: 70%;
-		border-radius: 3px;
+		box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.25);
+border-radius: 18px;
 }
 .menu_touch li a.logo{
 	font-size: 25px;
@@ -126,7 +126,7 @@ font-weight: bold;
 		width:100% ;
 		color: #000;
 		background: #ffcc01;
-		transition: all .1s linear;
+		transition: all .0.5s linear;
 
 	}
 	.toggle:hover{
@@ -146,12 +146,10 @@ font-weight: bold;
 		flex-direction: column;
 		justify-content: space-around;
 		align-items:center ;
-		height:0 ;s
+		height:0 ;
 		transition: height .3s linear;
 
 	}
 }
 
-img{
-	width: 20%;
-}
+

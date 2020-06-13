@@ -1,5 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
+from django.views import View
+
 from MainApp.utills import *
 from .models import Request, Animals, Visitor, Transfer
 from .forms import RequestForm
@@ -15,6 +17,14 @@ def index(request):
 def detail(request, animal_id):
     animal = get_object_or_404(Animals, pk=animal_id)
     return render(request, 'MainApp/detail.html', {'animal': animal})
+
+class AnimalDetail(ObjectDetailMixin,View):
+    model = Animals
+    template ='MainApp/detail_animals.html'
+
+def requests_all(request):
+    req = Request.objects.all()
+    return render(request, 'MainApp/detail_request.html', {'request': req})
 
 
 def add_request(request):
@@ -80,7 +90,9 @@ def add_animals(request):
 
 def check_list(request):
     animals = Animals.objects.order_by('weight')[:5]
-    return render(request, 'MainApp/check_list.html', {'animals': animals})
+    transfer = Transfer.objects.order_by('date_of_transfer')[:5]
+    return render(request, 'MainApp/check_list.html', {'animals': animals, 'transfer' : transfer})
+
 
 
 def about(request):
