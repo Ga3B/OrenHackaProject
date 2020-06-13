@@ -48,14 +48,14 @@ def add_request(request):
             #     if request.user.is_authenticated:
             #         animal.save()
             req.save()
-            return HttpResponse('Заявка принята!')
-        else:
-            response = {}
-            for k in form.errors:
-                response[k] = form.errors[k][0]
-            return HttpResponse({"Что-то не так:\n": response})
-
             return HttpResponseRedirect('?submitted=True')
+        # else:
+        #     response = {}
+        #     for k in form.errors:
+        #         response[k] = form.errors[k][0]
+        #     return HttpResponse({"Что-то не так:\n": response})
+
+            # return HttpResponseRedirect('?submitted=True')
     else:
 
         form = RequestForm()
