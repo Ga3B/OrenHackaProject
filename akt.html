@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style type="text/css">
+  .content {
+    width: 1000px
+  }
+</style>
+<div class="content" >
+
+<p style="font-size: 150%; padding-left:40%;">Акт № {{ transfer.pk }}</p>
+<p style="padding-left:90%;">Дата время</p>
+<p style="padding-left:80%;">{{ transfer.date_of_transfer }}</p>
+<p>Исполнителем доставлено по заявлению № {{ transfer.request_id }}</p>
+<table border="2">
+  <tr bgcolor="#d4d4d4">
+    <td>№</td>
+    <td>Вид</td>
+    <td>Пол</td>
+    <td>Окрас</td>
+    <td>Вес</td>
+    <td>Особые приметы</td>
+    <td>Поведение</td>
+  </tr>
+    <tr>
+    <td>{{ animal.pk }}</td>
+    <td>{{ animal.sort_animal }}</td>
+    <td>{{ animal.gender }}</td>
+    <td>{{ animal.color }}</td>
+    <td>{{ animal.weight }}</td>
+    <td>{{ animal.special_signs}}</td>
+    <td>{{ animal.behavior }}</td>
+  </tr>
+</table>
+<br><br><br>
+<p style="padding-left:15%; display: inline-block;">Передал</p>
+<p style="padding-left:50%; display: inline-block;">Принял</p>
+<p style="padding-left:16%; display: inline-block;">______ {{ user.surname }}</p>
+<p style="padding-left:38%; display: inline-block;">______ {{ shelter.name }}</p>
+</div>
+{% endblock content %}
