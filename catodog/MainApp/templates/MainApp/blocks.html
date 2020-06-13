@@ -3,7 +3,9 @@
 
 	<link rel="stylesheet" type="text/css" href="{% static 'css/blockstyle.css' %}"/>
 	<span ><img class="animal_photo" src=""></span>
-	<span class="status">{{Name}}</span>
+	<span class="status">Вес:{{animal.color}}</span>
+	<span class="status">Окрас:{{animal.weight}}</span>
+	<span class="status">Фото:{{animal.PhotoUrl}}</span>
 	<a class="map_click"">
 		Показать на карте
 		<button class="map_click"" >map</button>
