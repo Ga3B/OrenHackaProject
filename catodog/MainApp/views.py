@@ -104,7 +104,7 @@ def check_list(request):
 
 def animal_map(request):
     animap = Request.objects.all()
-    return render(request, 'MainApp/check_list.html', {'animap': animap})
+    return render(request, 'MainApp/animal_map.html', {'animap': animap})
 
 def about(request):
     return render(request, 'MainApp/about.html', {})
