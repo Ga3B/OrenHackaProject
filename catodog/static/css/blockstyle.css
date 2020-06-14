@@ -1,8 +1,9 @@
 .list_item
 {
 
-background: linear-gradient(91.28deg, rgba(255, 255, 255, 0.7) -4.53%, rgba(254, 254, 254, 0.7) 44.28%), linear-gradient(237.37deg, rgba(132, 185, 71, 0.7) 55.69%, rgba(255, 255, 255, 0) 100.83%), rgba(165, 171, 160, 0.8);
-opacity: 0.8;
+background: linear-gradient(91.28deg, rgba(255, 255, 255, 0.7) -4.53%, rgba(224, 109, 32, 0.55) 99.28%);
+
+opacity: 1;
 margin-left: 5%;
 margin-right:10%;
 width: 90%;
@@ -14,14 +15,16 @@ color: #333;
 box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.25);
 border-radius: 30px;
 box-sizing: border-box;
+margin-top:20px;
 }
 .map_click
 {
-	margin-left:45%;
-	width: 10%;
+	margin-left:42%;
+	width: 15%;
 	height: 25%;
 	margin-bottom: 0%;
 	margin-top:-5%; 
+	opacity: 80%;
 }
 .animal_photo
 {
