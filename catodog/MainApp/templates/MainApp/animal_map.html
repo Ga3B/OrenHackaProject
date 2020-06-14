@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block title %}Животные на карте:{% endblock title %}
+{% load static%}
+{% block content %}
+<style>
+        #map {
+            width: 500px; height: 500px;
+        }     
+</style>
+<script src="https://api-maps.yandex.ru/2.1/?lang=en_RU&amp;apikey=dd16a5a7-d6e1-49b1-bd76-ccddd02df8ee"
+        type="text/javascript"></script>
+
+<script type="text/javascript">
+	        // Инициализация карты
+        ymaps.ready(init);
+ 
+        function init () {
+            
+            //Центрирование и выбор масштаба карты
+            var myMap = new ymaps.Map('map', {
+                    center: [51.786542, 55.123780],  
+                    zoom: 12,
+                    controls: ['geolocationControl']
+                });
+
+
+                // Добавление метки на карту
+                myMap.geoObjects
+     		  .add(new ymaps.Placemark([51.786694, 55.135012], {
+     		      balloonContent: 'bluecolor',
+     		      iconCaption: ''
+     		  }, {
+     		      preset: 'islands#circleIcon',
+     		      iconColor: '#3caa3c',
+     		  }));
+                //Элементы управления   
+                myMap.controls
+                // Кнопка изменения масштаба
+                    .add('zoomControl')
+                    // Список типов карты
+                    .add('typeSelector')
+                    // Кнопка изменения масштаба - справа
+                    .add('smallZoomControl', { right: 5, top: 75 })
+                    // Стандартный набор кнопок
+                    .add('mapTools')    
+                    //Линейка масштаба
+                   .add(new ymaps.control.ScaleLine());
+        }
+    
+</script>
+
+<script type="text/javascript">
+	
+
+</script>
+    {% for anima in animap %}
+  		{{anima.geotag}}
+    
+
+
+    
+    {% endfor %}
+
+<h1>Животные на карте:</h1>
+  <div id="map"></div>
+
+
+{% endblock content %}

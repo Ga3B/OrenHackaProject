@@ -53,7 +53,7 @@ class Status(models.Model):
 class Request(models.Model):
     dateTime = models.DateTimeField("Время подачи заявки")
     user_id = models.ForeignKey(User, on_delete=models.DO_NOTHING,
-                                verbose_name="Пользователь", )
+                                verbose_name="Пользователь")
     description = models.TextField("Комментарий", null=True)
     geotag = models.TextField("Геометка")
     status = models.ForeignKey(Status, on_delete=models.SET("Неизвестно"), verbose_name="Статус", max_length=20)

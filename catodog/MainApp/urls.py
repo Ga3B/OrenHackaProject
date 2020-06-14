@@ -30,6 +30,7 @@ urlpatterns = [
     path('<int:animal_id>/', views.detail, name='detail'),
     path('add_request/', views.add_request, name='add_request'),
     path('check_list/', views.check_list, name='check_list'),
+    path('animal_map/', views.animal_map, name='animal_map'),
     path('about/', views.about, name='about'),
     path('news/', views.news, name='news'),
     path('pets/', views.pets, name='pets'),
