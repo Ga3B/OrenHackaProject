@@ -7,14 +7,14 @@
 
 
 <form action="" enctype="multipart/form-data" method="post" novalidate>
-    <div class="card border-primary mb-3" style="width: 600px;heightL600px;">
+    <div class="card border-primary mb-3" style="width: 600px;height:600px;">
         <div class="card-header">Пожалуйста, заполните форму</div>
          <div class="card-body text-primary">
             {{ form.as_table }}
         </div>
     {% csrf_token %}
-
-    <div class="card-footer text-muted">
+<br>
+    <div class="card-footer text-muted" style="height:10%;margin-left: 20%;">
         <button type="submit" class="btn btn-primary" style="  width: 100%; height: 100%;">Добавить</button>
     </div>
     </div>
