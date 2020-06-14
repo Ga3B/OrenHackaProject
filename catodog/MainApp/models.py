@@ -18,9 +18,23 @@ class Animals(models.Model):
     sort_animal=models.CharField("Вид животного", max_length=20)
     gender=models.CharField("Пол",max_length=20)
     behavior=models.CharField("Поведение животного",max_length=40,null=True)
+    chip=models.CharField("Чип животного",max_length=50,null=True)
 
-    def get_absolute_url(self):
-        return reverse('animal_detail', kwargs={'id': self.pk})
+    # def get_absolute_url(self):
+    #     return reverse('animal_detail', kwargs={'id': self.pk})
+
+    # def get_absolute_url(self):
+    #     return reverse('MainApp/includes/detail_transfer.html', kwargs={'id': self.pk})
+
+    def __str__(self):
+        return self.chip
+
+class Lost_animals(models.Model):
+    animal_id=models.ForeignKey(Animals,on_delete=models.SET('NULL'),related_name='animals_id')
+    user_id=models.ForeignKey(User,on_delete=models.SET('NULL'), related_name='user_id')
+    date=models.DateTimeField()
+
+
 
 # история операций
 class Animal_story(models.Model):
@@ -29,6 +43,7 @@ class Animal_story(models.Model):
 
 class Status(models.Model):
     name=models.CharField('Статус',max_length=20)
+
     def __str__(self):
         return self.name
 
@@ -46,6 +61,9 @@ class Request(models.Model):
     def get_absolute_url(self):
         return reverse('request_detail', kwargs={'id': self.pk})
 
+    def __str__(self):
+        return str(self.pk)
+
 
 # статус животного
 class Animal_status(models.Model):
@@ -58,16 +76,22 @@ class Animal_status(models.Model):
 
 # акт приема-передачи
 class Transfer(models.Model):
-    animal_id = models.ForeignKey(Animals, on_delete=models.CASCADE,verbose_name="Животное",related_name="animal_id"),
+
 
     status_id = models.ForeignKey(Animal_status, on_delete=models.SET("Неизвестно"),
                                   verbose_name="Статус")
     request_id = models.ForeignKey(Request, on_delete=models.SET("#0"),
                                    verbose_name="№ заявки")
-    user_id = models.ForeignKey(User, on_delete=models.SET("Админ"),
+    user_id = models.ForeignKey(User, on_delete=models.SET("Null"),
                                 verbose_name="Ловец")
     date_of_transfer = models.DateTimeField("Дата передачи животного")
     description = models.TextField(null=True, verbose_name="Описание")
+    animals_id = models.ForeignKey(Animals,on_delete=models.SET("Null")),
+
+
+    def __str__(self):
+        return str(self.request_id)
+
 
 # приют
 
