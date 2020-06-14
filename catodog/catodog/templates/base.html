@@ -92,11 +92,12 @@
                       <div class="dropdown-content">
                         <a href="{% url 'MainApp:request_all' %}">Список заявок</a>
                         <a href="{% url 'MainApp:check_list' %}">Животные в приюте</a>
-                        <a href="#"></a>
+                        <a href="#">Потеряшки</a>
+                         <a href="#">Карта</a>
                     </div>
                     </div></li>
                 <!-- <li><a href="{% url 'MainApp:request_all' %}">список заявок</a></li> -->
- 
+
                 {% if perms.staff %} 
                 <li><a href="{% url 'MainApp:add_animals' %}">Зарегистрировать животное</a></li>
                 {% endif %}
