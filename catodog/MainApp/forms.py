@@ -28,6 +28,11 @@ class AnimalForm(forms.Form):
     sort_animal = forms.CharField(label='Вид животного', max_length=140)
     gender = forms.CharField(label="Пол животного", max_length=100)
     behavior = forms.CharField(label="Поведение", max_length=50)
+    chip=forms.CharField(label="№ чипа, если есть",max_length=50)
+
+class Lost_animalsForm(forms.Form):
+    user_id = forms.HiddenInput()
+    animals_id = forms.HiddenInput
 
 
 class CatcherForm(forms.Form):
