@@ -39,5 +39,6 @@ urlpatterns = [
     path('catcher/', views.catcher, name='catcher'),
     path('lost/', views.lost_animals, name='lost_animals'),
     path('act/<int:id>', TransferDetail.as_view(), name='act_detail'),
+    path('changestatus/<int:req_id>/<str:stat_id>/', views.changestatus, name='changestatus')
 
 ]

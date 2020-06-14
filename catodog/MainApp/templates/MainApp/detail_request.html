@@ -17,6 +17,22 @@ Requests-{{block.super}}
                 <li class="list-group-item"><h6>Оставлена пользователем:</h6>{{req.user_id}}</li>
                 <li class="list-group-item"><h6>Коментарий:</h6>{{req.description}}</li>
                 <li class="list-group-item"><h6>Статус:</h6>{{req.status}}</li>
+                {% if perms.staff %} 
+                <li class="list-group-item">
+                <label for="status"> Измените статус:</label>
+                <select name="status" onchange="changeStatus({{ req.id }})" id="status{{ req.id }}">
+                  <option value="1">В обработке</option>
+                  <option value="2">Выполняется</option>
+                  <option value="3">Животное в приюте</option>
+                  <option value="4">Закрыта</option>
+                </select> 
+                <form method="post">
+                <a id="hr" href="{% url 'MainApp:changestatus' req.id -1 %}">
+                <button value="confirm">Изменить статус</button></a>
+                {% csrf_token %}
+                </form>
+                </li>
+                {% endif %}
             </ul>
              
         </div>
@@ -28,7 +44,20 @@ Requests-{{block.super}}
 
 
 {% endfor%}
-
+<script>
+    var prev = '-1';
+    function changeStatus(id) {
+        // alert(prev);
+        var sel = document.getElementById(`status${id}`);
+        var newStatus = sel.options[sel.selectedIndex].text;
+        var st_id = sel.options[sel.selectedIndex].value;
+        // alert(st_id);
+        hr = document.getElementById('hr');
+        hr.href = hr.href.replace(prev, st_id);
+        alert(hr.href.replace(prev, st_id))
+        prev = st_id;
+    }
+</script>
 
 {% endblock content %}
 </div>
