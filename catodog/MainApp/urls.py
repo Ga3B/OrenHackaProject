@@ -19,7 +19,7 @@ from django.urls import path, include
 
 from catodog import settings
 from . import views
-from .views import AnimalDetail
+from .views import AnimalDetail, TransferDetail
 
 app_name = 'MainApp'
 urlpatterns = [
@@ -32,10 +32,12 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('news/', views.news, name='news'),
     path('pets/', views.pets, name='pets'),
-    path('act/', views.act, name='act'),
+    # path('act/', views.act, name='act'),
     path('createpets/', views.add_animals, name='add_animals'),
-    path('pets/<int:id>', AnimalDetail.as_view(), name='animal_detail'),
+    path('<int:id>', AnimalDetail.as_view(), name='animal_detail'),
     path('request/', views.requests_all, name='request_all'),
-    path('catcher/', views.catcher, name='catcher')
+    path('catcher/', views.catcher, name='catcher'),
+    path('lost/', views.lost_animals, name='lost_animals'),
+    path('act/<int:id>', TransferDetail.as_view(), name='act_detail'),
 
 ]
