@@ -10,6 +10,68 @@
         {% endblock %}
     </title>
 
+<style>
+/* Стиль Выпадающей Кнопки */
+.dropbtn {
+    background-color: #f9f9f9 ;
+
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.25);
+    color: rgba(0, 0, 0, 0.71);
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: bold; 
+    text-decoration: none;
+    align-self: left;
+    font-size: 20px;
+    width: 90px;
+    float: left;
+    padding: 16px;
+}
+
+/* контейнер <div> - необходим для размещения выпадающего содержимого */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Выпадающей контент (по умолчанию скрыт) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Ссылки внутри выпадающего списка */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Изменить цвет выпадающих ссылок при наведении */
+.dropdown-content a:hover {background-color: #c9920f}
+
+/* Показать выпадающее меню при наведении */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Изменить цвет фона выпадающего кнопка при отображении выпадающего списка */
+.dropdown:hover .dropbtn {
+    background-color: #c9920f;
+}
+
+
+
+</style>
+
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
 </head>
 <body>
@@ -21,22 +83,47 @@
             <ul class="menu_touch">
                 <a class="logo" href="/"><img class="logoimg" href="/" src="{% static 'img/logo.png' %}"></a>
 <!-- "../../static/img/logo.png -->
-                <li><a href="{% url 'MainApp:about' %}">о нас</a></li>
-                <li><a href="{% url 'MainApp:news' %}">события</a></li>
-                <li><a href="{% url 'MainApp:add_request' %}">подать заявку</a></li>
-                <li><a href="{% url 'MainApp:check_list' %}">животные в приюте</a></li>
-                <li><a href="{% url 'MainApp:request_all' %}">список заявок</a></li>
+                <li><a href="{% url 'MainApp:news' %}">Cобытия</a></li>
+                <li><a href="{% url 'MainApp:add_request' %}">Нашел животное</a></li>
+                <li><a href="{% url 'MainApp:lost_animals' %}">Потерял животное</a></li>
+                <!-- <li><a href="{% url 'MainApp:check_list' %}">животные в приюте</a></li> -->
+                <li><div class="dropdown">
+                     <button class="dropbtn">Списки</button>
+                      <div class="dropdown-content">
+                        <a href="{% url 'MainApp:request_all' %}">Список заявок</a>
+                        <a href="{% url 'MainApp:check_list' %}">Животные в приюте</a>
+                        <a href="#">Потеряшки</a>
+                         <a href="{% url 'MainApp:animal_map' %}">Карта</a>
+                    </div>
+                    </div></li>
+                <!-- <li><a href="{% url 'MainApp:request_all' %}">список заявок</a></li> -->
+
                 {% if perms.staff %} 
                 <li><a href="{% url 'MainApp:add_animals' %}">Зарегистрировать животное</a></li>
                 {% endif %}
-                <li><a href="{% url 'help' %}">FAQ</a></li>
+                <li><div class="dropdown">
+                     <button class="dropbtn">Инфо</button>
+                      <div class="dropdown-content">
+                        <a href="{% url 'help' %}">Вопрос/Ответ</a>
+                        <a href="{% url 'contacts' %}">Наши партнеры</a>
+                        <a href="{% url 'donate' %}">Поддержать</a>
+                      </div>
+                </div></li>
+<!--                 <li><a href="{% url 'help' %}">FAQ</a></li>
                 <li><a href="{% url 'contacts' %}">Наши партнеры</a></li>
-                <li><a href="{% url 'donate' %}">Поддержать</a></li>
+                <li><a href="{% url 'donate' %}">Поддержать</a></li> -->
                 {% if request.user.is_authenticated %}
-                <li><a href="/accounts/logout/">выйти</a></li>
-                <li><a href="{% url 'profile' %}">профиль</a></li>
+                <li><div class="dropdown">
+                     <button class="dropbtn">Профиль</button>
+                      <div class="dropdown-content">
+                        <a href="{% url 'profile' %}">Профиль</a>
+                        <a href="/accounts/logout/">Выйти</a>
+                      </div>
+                </div></li>
+<!--                 <li><a href="/accounts/logout/">Выйти</a></li>
+                <li><a href="{% url 'profile' %}">Профиль</a></li> -->
                 {% else %}
-                <li><a href="/accounts/login/">войти</a></li>
+                <li><a href="/accounts/login/">Войти</a></li>
                 {% endif %}
             </ul>
             <span class="toggle">☰</span>
@@ -48,7 +135,6 @@
 Thete is no any content
 {% endblock %}
 
-<!--    <script src="scripts.js"></script>-->
-</div>>
+<!--    <script src="scripts.js"></script>-->               
 </body>
 </html>

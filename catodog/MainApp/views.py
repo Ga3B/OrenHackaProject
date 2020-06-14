@@ -20,6 +20,10 @@ class AnimalDetail(ObjectDetailMixin, View):
     model = Animals
     template = 'MainApp/detail_animals.html'
 
+class ActDetail(ObjectDetailMixin,View):
+    model = Animals
+    template = 'MainApp/act.html'
+
 
 def requests_all(request):
     req = Request.objects.all()
@@ -102,6 +106,9 @@ def check_list(request):
     transfer = Transfer.objects.order_by('date_of_transfer')[:5]
     return render(request, 'MainApp/check_list.html', {'animals': animals, 'transfer': transfer})
 
+def animal_map(request):
+    animap = Request.objects.all()
+    return render(request, 'MainApp/animal_map.html', {'animap': animap})
 
 def about(request):
     return render(request, 'MainApp/about.html', {})
@@ -119,11 +126,16 @@ def news(request):
 #     transfer = get_object_or_404(Transfer, pk=transfer_id)
 #     animal = get_object_or_404(Animals, pk=animal_id)
 #     return render(request, 'act.html', {'transfer': transfer, 'animal': animal})
+#
+# class TransferDetail(ObjectDetailMixin,View):
+#     model = Transfer
+#     template ='MainApp/includes/detail_transfer.html'
 
 
 class TransferDetail(ObjectDetailMixin, View):
     model = Transfer
     template = 'MainApp/detail_transfer.html'
+
 
 
 def catcher(request):
