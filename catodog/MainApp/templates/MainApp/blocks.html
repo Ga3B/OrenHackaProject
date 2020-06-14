@@ -8,11 +8,12 @@
 	<span class="status">Окрас:{{animal.color}}</span><br>
 	<span class="status">Пол:{{animal.gender}}</span><br>
 	<span class="status">Вес:{{animal.weight}}</span><br>
-	<a class="map_click">
-		<button class="map_click" href="../{{animal.pk}}"  >Подробнее</button>
+	<a class="map_click" href="{% url 'MainApp:animal_detail' animal.pk %}" >
+		<button class="map_click"  >Подробнее</button>
 	</a>
 </div>
 <!-- фото
+
  -->
 
 
