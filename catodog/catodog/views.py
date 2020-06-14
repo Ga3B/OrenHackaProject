@@ -24,7 +24,7 @@ def donate(request):
 
 
 @login_required()
-def profile(request, action=''):
+def profile(request, action='no'):
     user = request.user
     if request.method == 'POST':
         if action == 'edit':
@@ -36,5 +36,5 @@ def profile(request, action=''):
                 return render(request, 'profile.html', {'user': user, 'error_message': e})
             else:
                 user.save()
-                return HttpResponseRedirect(reverse('profile', args=('success',)))
+                return HttpResponseRedirect(reverse('profile', kwargs={'action': 'success'}))
     return render(request, 'profile.html', {'user': user, 'action': action})

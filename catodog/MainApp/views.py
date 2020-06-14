@@ -3,7 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.views import View
 from MainApp.utills import *
 from .models import Request, Animals, Visitor, Transfer, Status, Lost_animals
-from .forms import RequestForm, AnimalForm, CatcherForm,Lost_animalsForm
+from .forms import RequestForm, AnimalForm, CatcherForm, Lost_animalsForm
 import datetime
 
 
@@ -80,7 +80,7 @@ def add_animals(request):
             sort_animal = form.cleaned_data['sort_animal']
             gender = form.cleaned_data['gender']
             behavior = form.cleaned_data['behavior']
-            chip=form.cleaned_data['chip']
+            chip = form.cleaned_data['chip']
             animals = Animals(color=color, weight=weight, special_signs=special_signs,
                               sort_animal=sort_animal, gender=gender, behavior=behavior, PhotoUrl=photoUrl,
                               chip=chip)
@@ -131,9 +131,11 @@ def news(request):
 #     model = Transfer
 #     template ='MainApp/includes/detail_transfer.html'
 
-class TransferDetail(ObjectDetailMixin,View):
+
+class TransferDetail(ObjectDetailMixin, View):
     model = Transfer
-    template ='MainApp/act.html'
+    template = 'MainApp/detail_transfer.html'
+
 
 
 def catcher(request):
@@ -163,45 +165,52 @@ def catcher(request):
 
 
 def lost_animals(request):
-        submitted = False
-        if request.method == 'POST':
-            form = AnimalForm(request.POST, request.FILES)
-            if form.is_valid():
-                photoUrl = request.FILES['photoUrl']
-                color = form.cleaned_data['color']
-                weight = form.cleaned_data['weight']
-                special_signs = form.cleaned_data['special_signs']
-                sort_animal = form.cleaned_data['sort_animal']
-                gender = form.cleaned_data['gender']
-                behavior = form.cleaned_data['behavior']
-                chip = form.cleaned_data['chip']
-                animals = Animals(color=color, weight=weight, special_signs=special_signs,
-                                  sort_animal=sort_animal, gender=gender,
-                                  behavior=behavior, PhotoUrl=photoUrl,chip=chip)
-                animals.save()
-                lost_form=Lost_animalsForm(request.POST)
-                if lost_form.is_valid():
-                    userid=request.user
-                    date=datetime.datetime.now()
-                    animals_id=Animals.objects.get(color=color, weight=weight, special_signs=special_signs,
-                                  sort_animal=sort_animal, gender=gender, behavior=behavior,chip=chip)
-                    lost_animal=Lost_animals(user_id=userid,date=date,animal_id=animals_id)
-                    lost_animal.save()
+    submitted = False
+    if request.method == 'POST':
+        form = AnimalForm(request.POST, request.FILES)
+        if form.is_valid():
+            photoUrl = request.FILES['photoUrl']
+            color = form.cleaned_data['color']
+            weight = form.cleaned_data['weight']
+            special_signs = form.cleaned_data['special_signs']
+            sort_animal = form.cleaned_data['sort_animal']
+            gender = form.cleaned_data['gender']
+            behavior = form.cleaned_data['behavior']
+            chip = form.cleaned_data['chip']
+            animals = Animals(color=color, weight=weight, special_signs=special_signs,
+                              sort_animal=sort_animal, gender=gender,
+                              behavior=behavior, PhotoUrl=photoUrl, chip=chip)
+            animals.save()
+            lost_form = Lost_animalsForm(request.POST)
+            if lost_form.is_valid():
+                userid = request.user
+                date = datetime.datetime.now()
+                animals_id = Animals.objects.get(color=color, weight=weight, special_signs=special_signs,
+                                                 sort_animal=sort_animal, gender=gender, behavior=behavior, chip=chip)
+                lost_animal = Lost_animals(
+                    user_id=userid, date=date, animal_id=animals_id)
+                lost_animal.save()
 
-
-
-                return HttpResponse('Заявка принята!')
-            else:
-                response = {}
-                for k in form.errors:
-                    response[k] = form.errors[k][0]
-                return HttpResponse({"Что-то не так:\n": response})
-
-                return HttpResponseRedirect('?submitted=True')
+            return HttpResponse('Заявка принята!')
         else:
+            response = {}
+            for k in form.errors:
+                response[k] = form.errors[k][0]
+            return HttpResponse({"Что-то не так:\n": response})
 
-            form = AnimalForm()
-            if 'submitted' in request.GET:
-                submitted = True
-        return render(request, 'MainApp/create_animals.html', {'form': form, 'submitted': submitted})
+            return HttpResponseRedirect('?submitted=True')
+    else:
 
+        form = AnimalForm()
+        if 'submitted' in request.GET:
+            submitted = True
+    return render(request, 'MainApp/create_animals.html', {'form': form, 'submitted': submitted})
+
+
+def changestatus(request, req_id, stat_id):
+    if request.method == 'POST':
+        req = Request.objects.get(pk=req_id)
+        st = Status.objects.get(pk=stat_id)
+        req.status = st
+        req.save()
+        return HttpResponseRedirect('?submitted=True')
