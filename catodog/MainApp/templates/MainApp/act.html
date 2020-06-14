@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+<div class="content">
 {% block content %}
 
 <style type="text/css">
@@ -12,7 +13,7 @@
 
   }
 </style>
-<div class="content">
+
     {%for transfer in animals.animal_transfer_ID.all%}
     <p style="font-size: 150%; padding-left:40%;">Акт № {{ transfer.id }}</p>
     <p style="padding-left:90%;">Дата время</p>
@@ -51,7 +52,7 @@
     {%for shelter in animals.animal_shelter_ID.all%}
     <p style="padding-left:38%; display: inline-block;">______ {{ shelter.name }}</p>
     {%endfor%}
-</div>
 
 
 {% endblock content %}
+</div>
