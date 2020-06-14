@@ -19,9 +19,10 @@ from django.urls import path, include
 
 from catodog import settings
 from . import views
-from .views import AnimalDetail, TransferDetail
+from .views import AnimalDetail, TransferDetail, ActDetail
 
 app_name = 'MainApp'
+
 urlpatterns = [
     # path('admin/', admin.site.urls),
     # path('createReuest/', CreateRequest.as_view, name='CreateRequest_url')
@@ -38,6 +39,7 @@ urlpatterns = [
     path('request/', views.requests_all, name='request_all'),
     path('catcher/', views.catcher, name='catcher'),
     path('lost/', views.lost_animals, name='lost_animals'),
-    path('act/<int:id>', TransferDetail.as_view(), name='act_detail'),
+    # path('act/<int:id>', TransferDetail.as_view(), name='act_detail'),
+    path('act/<int:id>', ActDetail.as_view(), name='act_detail'),
 
 ]

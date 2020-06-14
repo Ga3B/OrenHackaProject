@@ -26,7 +26,30 @@ abouts-{{block.super}}
 </div>
 
 <!--{{animals.get_absolute_url}}-->
+<p>-------------АКТ ПРИЕМА_ПЕРЕДАЧИ----------------------------</p>
+    {%for animal in animals.animal_transfer_ID.all%}
+	<ul class="list-group list-group-flush">
+                <li class="list-group-item"><h6>Статус животного:</h6>{{animal.status_id}}</li>
+                <li class="list-group-item"><h6>№ заявки на отлов:</h6>{{animal.request_id}}</li>
+                <li class="list-group-item"><h6>Составитель заявки:</h6>{{animal.user_id}}</li>
+                <li class="list-group-item"><h6>Дата передачи в приют:</h6>{{animal.date_of_transfer}}</li>
+                <li class="list-group-item"><h6>Описание:</h6>{{animal.description}}</li>
+                <li class="list-group-item"><h6>Чип животного:</h6>{{animal.animals_id}}</li>
 
+            </ul>
+        </div>
+    {%endfor%}
+<p>----------------О ПРИЮТЕ-------------------------</p>
+    {%for animal in animals.animal_shelter_ID.all%}
+	<ul class="list-group list-group-flush">
+                <li class="list-group-item"><h6>Название приюта:</h6>{{animal.name}}</li>
+                <li class="list-group-item"><h6>Адрес приюта:</h6>{{animal.adres}}</li>
+                <li class="list-group-item"><h6>Номер телефона:</h6>{{animal.phone}}</li>
+
+            </ul>
+        </div>
+    {%endfor%}
+<p>-----------------------------------------</p>
 
         {%endblock content %}
 

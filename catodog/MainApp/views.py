@@ -20,6 +20,10 @@ class AnimalDetail(ObjectDetailMixin, View):
     model = Animals
     template = 'MainApp/detail_animals.html'
 
+class ActDetail(ObjectDetailMixin,View):
+    model = Animals
+    template = 'MainApp/act.html'
+
 
 def requests_all(request):
     req = Request.objects.all()
@@ -119,10 +123,15 @@ def news(request):
 #     transfer = get_object_or_404(Transfer, pk=transfer_id)
 #     animal = get_object_or_404(Animals, pk=animal_id)
 #     return render(request, 'act.html', {'transfer': transfer, 'animal': animal})
+#
+# class TransferDetail(ObjectDetailMixin,View):
+#     model = Transfer
+#     template ='MainApp/includes/detail_transfer.html'
 
 class TransferDetail(ObjectDetailMixin,View):
     model = Transfer
-    template ='MainApp/detail_transfer.html'
+    template ='MainApp/act.html'
+
 
 def catcher(request):
     submitted = False

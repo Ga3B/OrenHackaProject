@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style type="text/css">
+  .content {
+    width: 1000px
+  }
+  .table{
+    witdh:auto
+  }
+  .tr{
+
+  }
+</style>
+<div class="content">
+    {%for transfer in animals.animal_transfer_ID.all%}
+    <p style="font-size: 150%; padding-left:40%;">Акт № {{ transfer.id }}</p>
+    <p style="padding-left:90%;">Дата время</p>
+    <p style="padding-left:80%;">{{ transfer.date_of_transfer }}</p>
+    <p>Исполнителем доставлено по заявлению № {{ transfer.request_id }}</p>
+    {%endfor%}
+
+
+    <table border="2">
+        <tr bgcolor="#d4d4d4">
+            <td>№</td>
+            <td>Вид</td>
+            <td>Пол</td>
+            <td>Окрас</td>
+            <td>Вес</td>
+            <td>Особые приметы</td>
+            <td>Поведение</td>
+        </tr>
+        <tr>
+            <td>{{ animals.id }}</td>
+            <td>{{ animals.sort_animal}}</td>
+            <td>{{ animals.gender }}</td>
+            <td>{{ animals.color }}</td>
+            <td>{{ animals.weight }}</td>
+            <td>{{ animals.special_signs}}</td>
+            <td>{{ animals.behavior }}</td>
+        </tr>
+    </table>
+
+    <br><br><br>
+    <p style="padding-left:15%; display: inline-block;">Передал</p>
+    <p style="padding-left:50%; display: inline-block;">Принял</p>
+    {%for transfer in animals.animal_transfer_ID.all%}
+    <p style="padding-left:16%; display: inline-block;">______ {{ transfer.user_id }}</p>
+    {%endfor%}
+    {%for shelter in animals.animal_shelter_ID.all%}
+    <p style="padding-left:38%; display: inline-block;">______ {{ shelter.name }}</p>
+    {%endfor%}
+</div>
+
+
+{% endblock content %}
