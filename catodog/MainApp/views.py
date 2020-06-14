@@ -102,6 +102,9 @@ def check_list(request):
     transfer = Transfer.objects.order_by('date_of_transfer')[:5]
     return render(request, 'MainApp/check_list.html', {'animals': animals, 'transfer': transfer})
 
+def animal_map(request):
+    animap = Request.objects.all()
+    return render(request, 'MainApp/check_list.html', {'animap': animap})
 
 def about(request):
     return render(request, 'MainApp/about.html', {})
