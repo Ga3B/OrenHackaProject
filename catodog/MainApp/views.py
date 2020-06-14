@@ -134,7 +134,7 @@ def news(request):
 
 class TransferDetail(ObjectDetailMixin, View):
     model = Transfer
-    template = 'MainApp/detail_transfer.html'
+    template = 'MainApp/includes/detail_transfer.html'
 
 
 
